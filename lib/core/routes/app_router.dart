@@ -1,3 +1,4 @@
+import 'package:dalel_app/features/onboarding/presentation/cubits/on_boarding_cubit/on_boarding_cubit.dart';
 import 'package:dalel_app/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:dalel_app/features/splash/presentation/cubit/splash_cubit.dart';
 import 'package:dalel_app/features/splash/presentation/views/splash_view.dart';
@@ -19,7 +20,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kOnboardingView,
-        builder: (context, state) => OnboardingView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => OnBoardingCubit(),
+          child: OnboardingView(),
+        ),
       )
     ],
   );

@@ -1,7 +1,8 @@
-import 'package:dalel_app/core/utils/app_assets.dart';
-import 'package:dalel_app/core/widgets/app_image_renderer.dart';
+import 'package:dalel_app/features/onboarding/data/models/on_boarding_model.dart';
+import 'package:dalel_app/features/onboarding/presentation/cubits/on_boarding_cubit/on_boarding_cubit.dart';
 import 'package:flutter/material.dart';
-//  import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'on_boarding_view_contant.dart';
 
 class CustomOnboardingViewBody extends StatelessWidget {
   const CustomOnboardingViewBody({
@@ -10,21 +11,21 @@ class CustomOnboardingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: PageView.builder(
-        itemCount: 3,
-        itemBuilder: (context, index) => Column(
-          children: [
-            AppImageRenderer.assets(
-              Assets.imagesOnbording1,
-            ),
-        //     SmoothPageIndicator(
-        //   controller: PageController(initialPage: 0),
-        //   count: 3,
-        // )
-          ],
-        ),
-      ),
+    return BlocBuilder<OnBoardingCubit, OnBoardingState>(
+      builder: (context, state) {
+        final cubit = OnBoardingCubit.get(context);
+        return Expanded(
+          child: PageView.builder(
+              onPageChanged: cubit.onPageChanged,
+              controller: cubit.pageController,
+              itemCount: OnBoardingModel.onBoardingDataList.length,
+              itemBuilder: (context, index) {
+                final item = OnBoardingModel.onBoardingDataList[index];
+                return OnBoardingViewContant(item: item, cubit: cubit);
+              }),
+        );
+      },
     );
   }
 }
+

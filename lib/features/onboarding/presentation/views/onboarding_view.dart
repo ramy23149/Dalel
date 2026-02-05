@@ -10,20 +10,22 @@ class OnboardingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            Align(
-              alignment: Alignment.topRight,
-              child: Text(
-                AppStrings.Skip,
-                style: AppTextStyles.poppins400style64,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              Align(
+                alignment: Alignment.topRight,
+                child: Text(
+                  AppStrings.Skip,
+                  style: AppTextStyles.poppins400style64,
+                ),
               ),
-            ),
-            CustomOnboardingViewBody(),
-          ],
+              CustomOnboardingViewBody(),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-

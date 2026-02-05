@@ -1,5 +1,6 @@
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
+import 'package:dalel_app/core/widgets/custom_button.dart';
 import 'package:dalel_app/features/onboarding/presentation/widgets/custom_onboarding_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -14,14 +15,23 @@ class OnboardingView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
+              SizedBox(
+                height: 40,
+              ),
               Align(
                 alignment: Alignment.topRight,
                 child: Text(
                   AppStrings.Skip,
-                  style: AppTextStyles.poppins400style64,
+                  style: AppTextStyles.poppins400style16,
                 ),
               ),
-              CustomOnboardingViewBody(),
+              Expanded(child: CustomOnboardingViewBody()),
+              SizedBox(height: 88,),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: CustomBotton(text: AppStrings.Next),
+              ),
+              SizedBox(height: 16),
             ],
           ),
         ),

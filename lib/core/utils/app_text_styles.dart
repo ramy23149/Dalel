@@ -9,10 +9,10 @@ abstract class AppTextStyles {
     color: AppColors.deepBrown,
     fontFamily: kPacificoFontFamily,
   );
-  static final  poppins400style64 = TextStyle(
+  static final  poppins400style16 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w400,
-    color: AppColors.deepBrown,
+    color: AppColors.black,
     fontFamily: kPoppinsFontFamily,
   );
   static final  poppins500style24 = TextStyle(

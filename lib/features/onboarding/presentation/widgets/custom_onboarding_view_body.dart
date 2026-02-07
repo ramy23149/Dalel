@@ -16,16 +16,15 @@ class CustomOnboardingViewBody extends StatelessWidget {
     return BlocBuilder<OnBoardingCubit, OnBoardingState>(
       builder: (context, state) {
         final cubit = OnBoardingCubit.get(context);
-        return PageView.builder(
-            physics: BouncingScrollPhysics(),
-            onPageChanged: cubit.onPageChanged,
-            controller: cubit.pageController,
-            itemCount: OnBoardingModel.onBoardingDataList.length,
-            itemBuilder: (context, index) {
-              final item = OnBoardingModel.onBoardingDataList[index];
-              return SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                child: Column(
+        return Expanded(
+          child: PageView.builder(
+              physics: BouncingScrollPhysics(),
+              onPageChanged: cubit.onPageChanged,
+              controller: cubit.pageController,
+              itemCount: OnBoardingModel.onBoardingDataList.length,
+              itemBuilder: (context, index) {
+                final item = OnBoardingModel.onBoardingDataList[index];
+                return Column(
                   children: [
                     AppImageRenderer.assets(
                       item.image,
@@ -50,9 +49,9 @@ class CustomOnboardingViewBody extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],
-                ),
-              );
-            });
+                );
+              }),
+        );
       },
     );
   }

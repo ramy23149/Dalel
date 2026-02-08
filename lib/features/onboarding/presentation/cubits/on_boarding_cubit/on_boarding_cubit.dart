@@ -1,3 +1,4 @@
+import 'package:dalel_app/core/database/cache/cache_helper.dart';
 import 'package:dalel_app/core/functions/custom_navigation.dart';
 import 'package:dalel_app/core/routes/app_router.dart';
 import 'package:dalel_app/features/onboarding/data/models/on_boarding_model.dart';
@@ -30,8 +31,9 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     );
   }
 
-  void nextPage(BuildContext context) {
+  Future<void> nextPage(BuildContext context) async {
     if (currentPage == OnBoardingModel.onBoardingDataList.length - 1) {
+      await setOnBoardingViewed();
       customGoNavigation(context, AppRouter.kSignUpView);
     } else {
       pageController.nextPage(
@@ -41,11 +43,21 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     }
   }
 
-  void skip(BuildContext context) => customGoNavigation(context, AppRouter.kSignUpView);
- void goToLogin(BuildContext context) => customGoNavigation(context, AppRouter.kLogInView);
+  Future<void> skip(BuildContext context) async {
+  await  setOnBoardingViewed();
+   customGoNavigation(context, AppRouter.kSignUpView);
+  }
+ Future<void> goToLogin(BuildContext context) async{
+   await  setOnBoardingViewed();
+   customGoNavigation(context, AppRouter.kLogInView);
+ }
   @override
   Future<void> close() {
     pageController.dispose();
     return super.close();
+  }
+
+  Future<void> setOnBoardingViewed() async {
+    await SharedPrefHelper().setOnBoardingViewed(true);
   }
 }

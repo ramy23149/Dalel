@@ -15,6 +15,8 @@ class SplashView extends StatelessWidget {
       listener: (context, state) {
         if (state is NavigateToOnboarding) {
           customGoNavigation(context, AppRouter.kOnboardingView);
+        }else if(state is NavigateToSignUp){
+          customGoNavigation(context, AppRouter.kSignUpView);
         }
       },
       child: Scaffold(

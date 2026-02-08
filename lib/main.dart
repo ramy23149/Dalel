@@ -1,12 +1,13 @@
 import 'package:dalel_app/core/routes/app_router.dart';
+import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  setupServiceLocator();
   runApp(const Dalel());
 }
-
 
 class Dalel extends StatelessWidget {
   const Dalel({super.key});
@@ -14,11 +15,8 @@ class Dalel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.offWhite
-      ),
-      debugShowCheckedModeBanner: false,
-      routerConfig: AppRouter.router
-    );
+        theme: ThemeData(scaffoldBackgroundColor: AppColors.offWhite),
+        debugShowCheckedModeBanner: false,
+        routerConfig: AppRouter.router);
   }
 }

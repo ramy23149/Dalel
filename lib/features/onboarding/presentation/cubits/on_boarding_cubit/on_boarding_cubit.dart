@@ -1,6 +1,7 @@
 import 'package:dalel_app/core/database/cache/cache_helper.dart';
 import 'package:dalel_app/core/functions/custom_navigation.dart';
 import 'package:dalel_app/core/routes/app_router.dart';
+import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/features/onboarding/data/models/on_boarding_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,6 +59,6 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
   }
 
   Future<void> setOnBoardingViewed() async {
-    await SharedPrefHelper().setOnBoardingViewed(true);
+    await getIt<SharedPrefHelper>().setOnBoardingViewed(true);
   }
 }

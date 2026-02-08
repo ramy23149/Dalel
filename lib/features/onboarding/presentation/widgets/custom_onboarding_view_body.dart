@@ -16,7 +16,9 @@ class CustomOnboardingViewBody extends StatelessWidget {
     return BlocBuilder<OnBoardingCubit, OnBoardingState>(
       builder: (context, state) {
         final cubit = OnBoardingCubit.get(context);
-        return Expanded(
+        final screenHeight = MediaQuery.of(context).size.height;
+        return SizedBox(
+       height: screenHeight * 0.7,
           child: PageView.builder(
               physics: BouncingScrollPhysics(),
               onPageChanged: cubit.onPageChanged,
@@ -24,31 +26,33 @@ class CustomOnboardingViewBody extends StatelessWidget {
               itemCount: OnBoardingModel.onBoardingDataList.length,
               itemBuilder: (context, index) {
                 final item = OnBoardingModel.onBoardingDataList[index];
-                return Column(
-                  children: [
-                    AppImageRenderer.assets(
-                      item.image,
-                    ),
-                    SizedBox(height: 24),
-                    CustomSmoothPageIndicator(cubit: cubit),
-                    SizedBox(height: 32),
-                    Text(
-                      item.title,
-                      style: AppTextStyles.poppins500style24
-                          .copyWith(fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    SizedBox(height: 16),
-                    Text(
-                      item.description,
-                      style: AppTextStyles.poppins300style16,
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      AppImageRenderer.assets(
+                        item.image,
+                      ),
+                      SizedBox(height: 24),
+                      CustomSmoothPageIndicator(cubit: cubit),
+                      SizedBox(height: 32),
+                      Text(
+                        item.title,
+                        style: AppTextStyles.poppins500style24
+                            .copyWith(fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height: 16),
+                      Text(
+                        item.description,
+                        style: AppTextStyles.poppins300style16,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
                 );
               }),
         );

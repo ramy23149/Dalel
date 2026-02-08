@@ -21,10 +21,22 @@ abstract class AppTextStyles {
     color: AppColors.black,
     fontFamily: kPoppinsFontFamily,
   );
+  static final  poppins600style28 = TextStyle(
+    fontSize: 28,
+    fontWeight: FontWeight.w600,
+    color: AppColors.black,
+    fontFamily: kPoppinsFontFamily,
+  );
   static final  poppins500style18 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,
     color: AppColors.offWhite,
+    fontFamily: kPoppinsFontFamily,
+  );
+  static final  poppins500style16 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: AppColors.grey,
     fontFamily: kPoppinsFontFamily,
   );
   static final  poppins300style16 = TextStyle(

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "789886294734",
+    "project_id": "dalel-app-e0012",
+    "storage_bucket": "dalel-app-e0012.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789886294734:android:de1dbd50da32f0897d4e9f",
+        "android_client_info": {
+          "package_name": "com.example.dalel_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6RXYR0dZO8NE78aHnk9UMAskoXyINtf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

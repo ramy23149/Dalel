@@ -1,3 +1,5 @@
+import 'package:dalel_app/core/services/service_locator.dart';
+import 'package:dalel_app/features/auth/presentation/cubits/auth_cubit/auth_cubit.dart';
 import 'package:dalel_app/features/auth/presentation/views/log_in_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/sign_up_view.dart';
 import 'package:dalel_app/features/onboarding/presentation/cubits/on_boarding_cubit/on_boarding_cubit.dart';
@@ -12,7 +14,6 @@ abstract class AppRouter {
   static const String kOnboardingView = '/OnboardingView';
   static const String kSignUpView = '/SignUpView';
   static const String kLogInView = '/LogInView';
-
 
   static GoRouter router = GoRouter(
     routes: <RouteBase>[
@@ -32,11 +33,17 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kSignUpView,
-        builder: (context, state) => SignUpView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => getIt<AuthCubit>(),
+          child: SignUpView(),
+        ),
       ),
       GoRoute(
         path: kLogInView,
-        builder: (context, state) => LogInView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => getIt<AuthCubit>(),
+          child: LogInView(),
+        ),
       ),
     ],
   );

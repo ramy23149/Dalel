@@ -1,3 +1,4 @@
+import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/widgets/custom_button.dart';
 import 'package:dalel_app/features/auth/presentation/cubits/auth_cubit/auth_cubit.dart';
@@ -18,6 +19,7 @@ class CustomSignUpForm extends StatelessWidget {
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
         return Form(
+          key: cubit.formKey,
           child: Column(
             children: [
               Column(
@@ -26,7 +28,6 @@ class CustomSignUpForm extends StatelessWidget {
                   CustomFormTextField(
                     controller: cubit.firstNameController,
                     labelText: AppStrings.First_Name,
-
                   ),
                   CustomFormTextField(
                     controller: cubit.lastNameController,
@@ -39,6 +40,7 @@ class CustomSignUpForm extends StatelessWidget {
                   CustomFormTextField(
                     controller: cubit.passwordController,
                     labelText: AppStrings.Password,
+                    isPasswordTextField: true,
                   ),
                 ],
               ),
@@ -50,8 +52,13 @@ class CustomSignUpForm extends StatelessWidget {
                 height: 88,
               ),
               CustomBotton(
+                backgroundColor: cubit.isConfirmTermsAndConditions
+                    ? AppColors.primaryColor
+                    : AppColors.grey,
                 text: AppStrings.Sign_Up,
-                onPressed: () => cubit.createUserWithEmailAndPassword(),
+                onPressed: cubit.isConfirmTermsAndConditions
+                    ? () => cubit.validateForm()
+                    : null,
               ),
             ],
           ),

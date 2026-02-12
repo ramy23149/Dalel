@@ -62,4 +62,11 @@ abstract class AppStrings {
 
   static const String Search_deep_into_the_history =
       "Search deep into the history";
+  static const String Please_accept_terms_and_conditions =
+      "Please accept terms and conditions";
+  static const account_created_successfully = "Account created successfully";
+  static const The_account_already_exists_for_that_email =
+      "The account already exists for that email";
+  static const Password_should_be_at_least_6_characters =
+      "Password should be at least 6 characters";
 }

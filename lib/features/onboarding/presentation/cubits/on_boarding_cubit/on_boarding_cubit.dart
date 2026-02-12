@@ -32,10 +32,10 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     );
   }
 
-  Future<void> nextPage(BuildContext context) async {
+  Future<void> nextPage() async {
     if (currentPage == OnBoardingModel.onBoardingDataList.length - 1) {
       await setOnBoardingViewed();
-      customGoNavigation(context, AppRouter.kSignUpView);
+      customGoNavigation( AppRouter.kSignUpView);
     } else {
       pageController.nextPage(
         duration: const Duration(milliseconds: 750),
@@ -44,13 +44,13 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     }
   }
 
-  Future<void> skip(BuildContext context) async {
+  Future<void> skip() async {
   await  setOnBoardingViewed();
-   customGoNavigation(context, AppRouter.kSignUpView);
+   customGoNavigation( AppRouter.kSignUpView);
   }
- Future<void> goToLogin(BuildContext context) async{
+ Future<void> goToLogin() async{
    await  setOnBoardingViewed();
-   customGoNavigation(context, AppRouter.kLogInView);
+   customGoNavigation(AppRouter.kLogInView);
  }
   @override
   Future<void> close() {

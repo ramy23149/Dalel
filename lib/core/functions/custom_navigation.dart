@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:dalel_app/core/app/dalel_app.dart';
 import 'package:go_router/go_router.dart';
 
-void customPushNavigation(BuildContext context, String routePath) {
-  context.push(routePath);
+void customPushNavigation(String routePath) {
+  appContext.push(routePath);
 }
-void customGoNavigation(BuildContext context, String routePath) {
-  context.go(routePath);
+void customGoNavigation(String routePath) {
+  appContext.go(routePath);
 }

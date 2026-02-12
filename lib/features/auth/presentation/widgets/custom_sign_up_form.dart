@@ -1,6 +1,7 @@
 import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/widgets/custom_button.dart';
+import 'package:dalel_app/core/widgets/custom_loading_indecator.dart';
 import 'package:dalel_app/features/auth/presentation/cubits/auth_cubit/auth_cubit.dart';
 import 'package:dalel_app/features/auth/presentation/widgets/custom_form_text_field.dart';
 import 'package:dalel_app/features/auth/presentation/widgets/custom_terms_and_conditions.dart';
@@ -12,10 +13,7 @@ class CustomSignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit, AuthState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+    return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
         return Form(
@@ -50,8 +48,8 @@ class CustomSignUpForm extends StatelessWidget {
               CustomTermsAndConditions(),
               SizedBox(
                 height: 88,
-              ),
-              CustomBotton(
+              ), 
+            state is SignUpLoading ? const CustomLoadingIndecator() :  CustomBotton(
                 backgroundColor: cubit.isConfirmTermsAndConditions
                     ? AppColors.primaryColor
                     : AppColors.grey,

@@ -37,7 +37,7 @@ class OnboardingView extends StatelessWidget {
                     text: isLast
                         ? AppStrings.Create_Account
                         : AppStrings.Next,
-                    onPressed: () => cubit.nextPage(context),
+                    onPressed: () => cubit.nextPage(),
                   ),
                   SizedBox(height: 16),
                   isLast
@@ -45,7 +45,7 @@ class OnboardingView extends StatelessWidget {
                           children: [
                             CustomTextBtn(
                               text: AppStrings.Login_Now,
-                              onPressed: () => cubit.goToLogin(context),
+                              onPressed: () => cubit.goToLogin(),
                             ),
                             SizedBox(height: 8),
                           ],

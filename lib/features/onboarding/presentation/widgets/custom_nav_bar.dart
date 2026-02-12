@@ -17,7 +17,7 @@ class CustomNavBar extends StatelessWidget {
     return Align(
         alignment: Alignment.topRight,
         child: GestureDetector(
-          onTap: () => cubit.skip(context),
+          onTap: () => cubit.skip(),
           child: Text(
             AppStrings.Skip,
             style: AppTextStyles.poppins400style16,

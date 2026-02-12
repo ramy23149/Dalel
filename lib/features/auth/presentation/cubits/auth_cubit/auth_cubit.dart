@@ -1,5 +1,9 @@
 import 'dart:developer';
 
+import 'package:dalel_app/core/functions/custom_navigation.dart';
+import 'package:dalel_app/core/functions/show_flutter_toast.dart';
+import 'package:dalel_app/core/routes/app_router.dart';
+import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,18 +33,25 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> createUserWithEmailAndPassword() async {
+    emit(SignUpLoading());
     try {
       final credential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
               email: emailController.text, password: passwordController.text);
       log("user ${credential.user} created successfully");
-      emit(SignUpSuccess());
+      emit(SignUpSuccess(
+        message: AppStrings.account_created_successfully
+      ));     
+      showFlutterToast(message: AppStrings.account_created_successfully);
+      customGoNavigation(AppRouter.kHomeVeiw);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         log('The account already exists for that email.');
-        emit(SignUpError(errMessage: "The account already exists for that email."));
+        // emit(SignUpError(errMessage: AppStrings.The_account_already_exists_for_that_email));
+        showFlutterToast(message: AppStrings.The_account_already_exists_for_that_email);
       } else if (e.code == 'weak-password') {
-        emit(SignUpError(errMessage: "Password should be at least 6 characters"));
+        // emit(SignUpError(errMessage: AppStrings.Password_should_be_at_least_6_characters));
+        showFlutterToast(message: AppStrings.Password_should_be_at_least_6_characters);
       }
     }
   }
@@ -55,7 +66,7 @@ class AuthCubit extends Cubit<AuthState> {
       if (isConfirmTermsAndConditions) {
         createUserWithEmailAndPassword();
       } else {
-        log("please accept terms and conditions");
+        showFlutterToast(message: AppStrings.Please_accept_terms_and_conditions);
       }
     }
   }

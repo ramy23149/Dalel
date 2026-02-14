@@ -1,3 +1,5 @@
+import 'package:dalel_app/core/functions/custom_navigation.dart';
+import 'package:dalel_app/core/routes/app_router.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/features/auth/presentation/widgets/auth_questoin_action_row.dart';
 import 'package:dalel_app/features/auth/presentation/widgets/custom_sign_up_form.dart';
@@ -41,6 +43,7 @@ class SignUpView extends StatelessWidget {
                 child: AuthQuestionActionRow(
                   question: AppStrings.Already_have_an_account,
                   answer: AppStrings.Sign_In,
+                  onTap: () => customPushNavigation(AppRouter.kLogInView),
                 ),
               ),
               SliverToBoxAdapter(

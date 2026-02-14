@@ -1,9 +1,13 @@
-import 'package:dalel_app/core/app/dalel_app.dart';
-import 'package:go_router/go_router.dart';
+import 'package:dalel_app/core/routes/app_router.dart';
+
+
+// final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+// BuildContext get appContext => navigatorKey.currentState!.context;
+
 
 void customPushNavigation(String routePath) {
-  appContext.push(routePath);
+  AppRouter.router.push(routePath);
 }
 void customGoNavigation(String routePath) {
-  appContext.go(routePath);
+  AppRouter.router.go(routePath);
 }

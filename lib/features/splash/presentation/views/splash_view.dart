@@ -14,9 +14,9 @@ class SplashView extends StatelessWidget {
     return BlocListener<SplashCubit, SplashState>(
       listener: (context, state) {
         if (state is NavigateToOnboarding) {
-          customGoNavigation( AppRouter.kOnboardingView);
+          customGoNavigation(AppRouter.kOnboardingView);
         }else if(state is NavigateToSignUp){
-          customGoNavigation( AppRouter.kSignUpView);
+          customGoNavigation(AppRouter.kSignUpView);
         }
       },
       child: Scaffold(

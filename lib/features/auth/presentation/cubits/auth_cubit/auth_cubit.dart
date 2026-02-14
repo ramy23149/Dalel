@@ -47,10 +47,10 @@ class AuthCubit extends Cubit<AuthState> {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         log('The account already exists for that email.');
-        // emit(SignUpError(errMessage: AppStrings.The_account_already_exists_for_that_email));
+        emit(SignUpError(errMessage: AppStrings.The_account_already_exists_for_that_email));
         showFlutterToast(message: AppStrings.The_account_already_exists_for_that_email);
       } else if (e.code == 'weak-password') {
-        // emit(SignUpError(errMessage: AppStrings.Password_should_be_at_least_6_characters));
+        emit(SignUpError(errMessage: AppStrings.Password_should_be_at_least_6_characters));
         showFlutterToast(message: AppStrings.Password_should_be_at_least_6_characters);
       }
     }

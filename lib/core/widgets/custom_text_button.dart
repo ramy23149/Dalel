@@ -9,12 +9,13 @@ class CustomTextBtn extends StatelessWidget {
       required this.text,
       this.enableUnderLine = true,
       this.foregroundColor,
-      this.padding});
+      this.padding, this.style});
   final VoidCallback? onPressed;
   final String text;
   final Color? foregroundColor;
   final EdgeInsetsGeometry? padding;
   final bool enableUnderLine;
+  final TextStyle? style;
   @override
   Widget build(BuildContext context) {
     return TextButton(
@@ -28,6 +29,6 @@ class CustomTextBtn extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: Text(text));
+        child: Text(text,style: style,));
   }
 }

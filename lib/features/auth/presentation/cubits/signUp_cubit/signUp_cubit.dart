@@ -8,14 +8,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'auth_state.dart';
+part 'signUp_state.dart';
 
-class AuthCubit extends Cubit<AuthState> {
-  AuthCubit() : super(AuthInitial()) {
+class SignUpCubit extends Cubit<SignUpState> {
+  SignUpCubit() : super(SignUpInitial()) {
     _init();
   }
 
-  static AuthCubit get(context) => BlocProvider.of(context);
+  static SignUpCubit get(context) => BlocProvider.of(context);
 
   late final TextEditingController emailController,
       passwordController,
@@ -43,7 +43,7 @@ class AuthCubit extends Cubit<AuthState> {
         message: AppStrings.account_created_successfully
       ));     
       showFlutterToast(message: AppStrings.account_created_successfully);
-      customGoNavigation(AppRouter.kHomeVeiw);
+      customGoNavigation(AppRouter.kHomeView);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         log('The account already exists for that email.');
@@ -69,5 +69,14 @@ class AuthCubit extends Cubit<AuthState> {
         showFlutterToast(message: AppStrings.Please_accept_terms_and_conditions);
       }
     }
+  }
+
+  @override
+  Future<void> close() {
+    emailController.dispose();
+    passwordController.dispose();
+    lastNameController.dispose();
+    firstNameController.dispose();
+    return super.close();
   }
 }

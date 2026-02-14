@@ -2,7 +2,7 @@ import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/widgets/custom_button.dart';
 import 'package:dalel_app/core/widgets/custom_loading_indecator.dart';
-import 'package:dalel_app/features/auth/presentation/cubits/auth_cubit/auth_cubit.dart';
+import 'package:dalel_app/features/auth/presentation/cubits/signUp_cubit/signUp_cubit.dart';
 import 'package:dalel_app/features/auth/presentation/widgets/custom_form_text_field.dart';
 import 'package:dalel_app/features/auth/presentation/widgets/custom_terms_and_conditions.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +13,9 @@ class CustomSignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthCubit, AuthState>(
+    return BlocBuilder<SignUpCubit, SignUpState>(
       builder: (context, state) {
-        var cubit = AuthCubit.get(context);
+        var cubit = SignUpCubit.get(context);
         return Form(
           key: cubit.formKey,
           child: Column(

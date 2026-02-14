@@ -2,7 +2,7 @@ import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:dalel_app/core/widgets/custom_text_button.dart';
-import 'package:dalel_app/features/auth/presentation/cubits/auth_cubit/auth_cubit.dart';
+import 'package:dalel_app/features/auth/presentation/cubits/signUp_cubit/signUp_cubit.dart';
 import 'package:dalel_app/features/auth/presentation/widgets/custom_check_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,9 +21,9 @@ class _CustomTermsAndConditionsState extends State<CustomTermsAndConditions> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthCubit, AuthState>(
+    return BlocBuilder<SignUpCubit, SignUpState>(
       builder: (context, state) {
-        final cubit = AuthCubit.get(context);
+        final cubit = SignUpCubit.get(context);
         return Row(
           children: [
             CustomCheckBox(

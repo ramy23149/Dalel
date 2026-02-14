@@ -43,7 +43,7 @@ class SignUpView extends StatelessWidget {
                 child: AuthQuestionActionRow(
                   question: AppStrings.Already_have_an_account,
                   answer: AppStrings.Sign_In,
-                  onTap: () => customPushNavigation(AppRouter.kLogInView),
+                  onTap: () => customReplaceNavigation(AppRouter.kLogInView),
                 ),
               ),
               SliverToBoxAdapter(

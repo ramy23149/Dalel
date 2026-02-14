@@ -11,3 +11,7 @@ void customPushNavigation(String routePath) {
 void customGoNavigation(String routePath) {
   AppRouter.router.go(routePath);
 }
+
+void customReplaceNavigation(String routePath) {
+  AppRouter.router.replace(routePath);
+}

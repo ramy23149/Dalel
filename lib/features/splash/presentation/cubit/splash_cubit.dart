@@ -14,12 +14,13 @@ class SplashCubit extends Cubit<SplashState> {
     bool? onBoardingViewed =
         await getIt<SharedPrefHelper>().getOnBoardingViewed();
     bool isLogin = FirebaseAuth.instance.currentUser != null;
+    // bool isEmailVerified = FirebaseAuth.instance.currentUser!.emailVerified;
     await Future.delayed(const Duration(seconds: 2));
 
     if (onBoardingViewed != null && onBoardingViewed) {
-      if (isLogin) {
-      //   emit(NavigateToHome());
-      // } else {
+      if (isLogin ) {
+        emit(NavigateToHome());
+      } else {
         emit(NavigateToLoginView());
       }
     } else {

@@ -1,3 +1,4 @@
+import 'package:dalel_app/core/functions/validate_email.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/widgets/custom_button.dart';
 import 'package:dalel_app/core/widgets/custom_loading_indecator.dart'
@@ -27,6 +28,7 @@ class CustomLoginForm extends StatelessWidget {
                 child: Column(
                   children: [
                     CustomFormTextField(
+                      validator: validatorEmail,
                       controller: cubit.emailController,
                       labelText: AppStrings.Email_Address,
                     ),
@@ -38,14 +40,15 @@ class CustomLoginForm extends StatelessWidget {
                       labelText: AppStrings.Password,
                       isPasswordTextField: true,
                     ),
-                    ForgotPasswordBtn(),
-                    SizedBox(
-                      height: 102,
-                    ),
+                  
                   ],
                 ),
               ),
             ),
+              ForgotPasswordBtn(),
+                    SizedBox(
+                      height: 102,
+                    ),
             state is LoginLoading
                 ? CustomLoadingIndecator()
                 : Padding(

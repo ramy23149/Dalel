@@ -1,3 +1,4 @@
+import 'package:dalel_app/core/functions/validate_email.dart';
 import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/widgets/custom_button.dart';
@@ -32,6 +33,8 @@ class CustomSignUpForm extends StatelessWidget {
                     labelText: AppStrings.Last_Name,
                   ),
                   CustomFormTextField(
+                    validator: validatorEmail,
+                    keyboardType: TextInputType.emailAddress,
                     controller: cubit.emailController,
                     labelText: AppStrings.Email_Address,
                   ),

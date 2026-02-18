@@ -70,7 +70,7 @@ abstract class AppStrings {
   static const Password_should_be_at_least_6_characters =
       "Password should be at least 6 characters";
   static const Do_not_have_an_account = "Don’t have an account ?";
-  static const user_not_found = "There is no user recorded with this email.";
-
-  static const wrong_password = "Wrong password provided for that user.";
+  static const invalid_email_or_password = "invalid_email_or_password";
+  static const Invalid_email = "This email is invalid";
+  static const check_your_email = "Check your email to verify your account";
 }

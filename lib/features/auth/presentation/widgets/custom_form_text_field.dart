@@ -1,36 +1,44 @@
 import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomFormTextField extends StatefulWidget {
   const CustomFormTextField(
       {super.key,
       required this.labelText,
       this.controller,
-      this.isPasswordTextField = false});
+      this.isPasswordTextField = false,
+      this.inputFormatters,
+      this.keyboardType, this.validator});
   final String labelText;
   final TextEditingController? controller;
   final bool isPasswordTextField;
+  final List<TextInputFormatter>? inputFormatters;
+  final TextInputType? keyboardType;
+  final String? Function(String?)? validator;
 
   @override
   State<CustomFormTextField> createState() => _CustomFormTextFieldState();
 }
 
 class _CustomFormTextFieldState extends State<CustomFormTextField> {
-   bool obscureText = true;
-
+  bool obscureText = true;
 
   void toggleObscureText() {
     setState(() {
       obscureText = !obscureText;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: TextFormField(
-        validator: (value) {
+        keyboardType: widget.keyboardType,
+        inputFormatters: widget.inputFormatters,
+        validator: widget.validator ?? (value) {
           if (value == null || value.isEmpty) {
             return 'Please enter some text';
           }
@@ -41,10 +49,12 @@ class _CustomFormTextFieldState extends State<CustomFormTextField> {
         obscuringCharacter: "●",
         controller: widget.controller,
         decoration: InputDecoration(
-          suffixIcon: widget.isPasswordTextField 
+          suffixIcon: widget.isPasswordTextField
               ? IconButton(
                   icon: Icon(
-                   obscureText ? Icons.visibility_outlined :  Icons.visibility_off_outlined,
+                    obscureText
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
                     color: AppColors.grey,
                   ),
                   onPressed: toggleObscureText,

@@ -22,7 +22,6 @@ class SignUpCubit extends Cubit<SignUpState> {
       lastNameController,
       firstNameController;
   late final GlobalKey<FormState> formKey;
-  bool isPasswordVisible = false;
   bool isConfirmTermsAndConditions = false;
   void _init() {
     emailController = TextEditingController();
@@ -39,19 +38,28 @@ class SignUpCubit extends Cubit<SignUpState> {
           .createUserWithEmailAndPassword(
               email: emailController.text, password: passwordController.text);
       log("user ${credential.user} created successfully");
-      emit(SignUpSuccess(
-        message: AppStrings.account_created_successfully
-      ));     
-      showFlutterToast(message: AppStrings.account_created_successfully);
-      customGoNavigation(AppRouter.kHomeView);
+      await credential.user!.sendEmailVerification();
+      emit(SignUpSuccess(message: AppStrings.check_your_email));
+      showFlutterToast(message: AppStrings.check_your_email);
+      customReplaceNavigation(AppRouter.kLogInView);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         log('The account already exists for that email.');
-        emit(SignUpError(errMessage: AppStrings.The_account_already_exists_for_that_email));
-        showFlutterToast(message: AppStrings.The_account_already_exists_for_that_email);
+        emit(SignUpError(
+            errMessage: AppStrings.The_account_already_exists_for_that_email));
+        showFlutterToast(
+            message: AppStrings.The_account_already_exists_for_that_email);
       } else if (e.code == 'weak-password') {
-        emit(SignUpError(errMessage: AppStrings.Password_should_be_at_least_6_characters));
-        showFlutterToast(message: AppStrings.Password_should_be_at_least_6_characters);
+        emit(SignUpError(
+            errMessage: AppStrings.Password_should_be_at_least_6_characters));
+        showFlutterToast(
+            message: AppStrings.Password_should_be_at_least_6_characters);
+      } else if (e.code == 'invalid-email') {
+        emit(SignUpError(errMessage: AppStrings.Invalid_email));
+        showFlutterToast(message: AppStrings.Invalid_email);
+      } else {
+        emit(SignUpError(errMessage: e.code));
+        showFlutterToast(message: e.code);
       }
     }
   }
@@ -66,9 +74,14 @@ class SignUpCubit extends Cubit<SignUpState> {
       if (isConfirmTermsAndConditions) {
         createUserWithEmailAndPassword();
       } else {
-        showFlutterToast(message: AppStrings.Please_accept_terms_and_conditions);
+        showFlutterToast(
+            message: AppStrings.Please_accept_terms_and_conditions);
       }
     }
+  }
+
+  Future<void> verifyEmail() async {
+    await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   }
 
   @override

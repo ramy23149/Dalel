@@ -1,3 +1,5 @@
+import 'package:dalel_app/core/functions/custom_navigation.dart';
+import 'package:dalel_app/core/routes/app_router.dart';
 import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
@@ -19,7 +21,7 @@ class ForgotPasswordBtn extends StatelessWidget {
             style: AppTextStyles.poppins600style12.copyWith(
               color: AppColors.deepGrey,
             ),
-            onPressed: (){},
+            onPressed: () => customPushNavigation(AppRouter.kForgotPasswordView),
           ),
         );
   }

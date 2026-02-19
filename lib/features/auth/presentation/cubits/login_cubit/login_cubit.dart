@@ -40,7 +40,7 @@ class LoginCubit extends Cubit<LoginState> {
       if (user != null) {
         if (user.emailVerified) {
           emit(LoginSuccess());
-          customReplaceNavigation(AppRouter.kHomeView);
+          customReplaceNavigation(AppRouter.kHomeNavBarView);
         } else {
           emit(LoginError(
             errMessage: "Please verify your email",
@@ -56,7 +56,7 @@ class LoginCubit extends Cubit<LoginState> {
 
         if (userCredential.user!.emailVerified) {
           emit(LoginSuccess());
-          customReplaceNavigation(AppRouter.kHomeView);
+          customReplaceNavigation(AppRouter.kHomeNavBarView);
         } else {
           await verifyEmail();
           emit(LoginError(

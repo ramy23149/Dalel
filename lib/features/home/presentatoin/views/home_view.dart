@@ -7,8 +7,8 @@ import 'package:dalel_app/core/routes/app_router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class HomeVeiw extends StatelessWidget {
-  const HomeVeiw({super.key});
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {

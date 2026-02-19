@@ -4,6 +4,8 @@ import 'package:dalel_app/features/auth/presentation/cubits/signUp_cubit/signUp_
 import 'package:dalel_app/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/log_in_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/sign_up_view.dart';
+import 'package:dalel_app/features/home/presentatoin/cubits/nav_bar_cubit/nav_bar_cubit.dart';
+import 'package:dalel_app/features/home/presentatoin/views/home_nav_bar_view.dart';
 import 'package:dalel_app/features/home/presentatoin/views/home_view.dart';
 import 'package:dalel_app/features/onboarding/presentation/cubits/on_boarding_cubit/on_boarding_cubit.dart';
 import 'package:dalel_app/features/onboarding/presentation/views/onboarding_view.dart';
@@ -19,6 +21,7 @@ abstract class AppRouter {
   static const String kLogInView = '/LogInView';
   static const String kHomeView = '/HomeVeiw';
   static const String kForgotPasswordView = '/ForgotPasswordView';
+  static const String kHomeNavBarView = '/HomeNavBarView';
 
   static GoRouter router = GoRouter(
     routes: <RouteBase>[
@@ -52,7 +55,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kHomeView,
-        builder: (context, state) => HomeVeiw(),
+        builder: (context, state) => HomeView(),
       ),
       GoRoute(
         path: kForgotPasswordView,
@@ -61,6 +64,14 @@ abstract class AppRouter {
           child: ForgotPasswordView(),
         ),
       ),
+      GoRoute(
+        path: kHomeNavBarView,
+        builder: (context, state) => BlocProvider(
+          create: (context) => NavBarCubit(),
+          child: HomeNavBarView(),
+        ),
+      ),
+
     ],
   );
 }

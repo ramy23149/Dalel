@@ -9,10 +9,22 @@ abstract class AppTextStyles {
     color: AppColors.deepBrown,
     fontFamily: kPacificoFontFamily,
   );
+  static final  pacifico400style22 = TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.w400,
+    color: AppColors.deepBrown,
+    fontFamily: kPacificoFontFamily,
+  );
   static final  poppins400style16 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w400,
     color: AppColors.black,
+    fontFamily: kPoppinsFontFamily,
+  );
+  static final  poppins400style20 = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w400,
+    color: AppColors.deepBrown,
     fontFamily: kPoppinsFontFamily,
   );
   static final  poppins400style12 = TextStyle(

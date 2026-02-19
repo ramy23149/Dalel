@@ -44,7 +44,7 @@ class NavBarCubit extends Cubit<NavBarState> {
       ),
       PersistentBottomNavBarItem(
         icon: AppImageRenderer.assets(Assets.imagesActiveSearch),
-        inactiveIcon: AppImageRenderer.assets(Assets.imagesInactiveSearch),
+        inactiveIcon: AppImageRenderer.assets(Assets.imagesInaciteveSearch),
       ),
       PersistentBottomNavBarItem(
         icon: AppImageRenderer.assets(Assets.imagesActievePerson),

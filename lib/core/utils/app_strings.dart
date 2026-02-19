@@ -75,5 +75,6 @@ abstract class AppStrings {
   static const check_your_email = "Check your email to verify your account";
   static const enter_your_registered_email = "Enter your registered email below to receive password reset instruction";
   static const Send_Verification_Code = "Send Verification Code";
+  static const Ancient_Egypt = "Ancient Egypt";
 
 }

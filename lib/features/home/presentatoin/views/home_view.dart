@@ -1,10 +1,7 @@
-// import 'package:dalel_app/core/functions/custom_navigation.dart';
-// import 'package:dalel_app/core/routes/app_router.dart';
-import 'dart:developer';
-
-import 'package:dalel_app/core/functions/custom_navigation.dart';
-import 'package:dalel_app/core/routes/app_router.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:dalel_app/core/utils/app_strings.dart';
+import 'package:dalel_app/core/widgets/custom_header_text.dart';
+import 'package:dalel_app/features/home/presentatoin/widgets/custom_home_view_appBar.dart';
+import 'package:dalel_app/features/home/presentatoin/widgets/historical_periods.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -12,27 +9,32 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final credential = FirebaseAuth.instance.currentUser;
-    log(credential!.email.toString());
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () async {
-                await FirebaseAuth.instance.signOut();
-             customReplaceNavigation(AppRouter.kLogInView);
-              },
-              icon: Icon(
-                Icons.exit_to_app,
-                color: Colors.black,
-              ))
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(child: SizedBox(height: 78)),
+            SliverToBoxAdapter(
+              child: CustomHomeViewAppBar(),
+            ),
+            SliverToBoxAdapter(child: SizedBox(height: 32)),
+            SliverToBoxAdapter(
+              child: CustomHeaderText(
+                text: AppStrings.Historical_periods,
+              ),
+            ),
+            SliverToBoxAdapter(child: SizedBox(height: 16)),
+            SliverToBoxAdapter(
+              child: HistoricalPeriods(),
+            )
+          ],
+        ),
       ),
-      body: Center(
-          child: Text(
-        'HomeVeiw',
-        style: TextStyle(fontSize: 30, color: Colors.black),
-      )),
     );
   }
 }
+
+
+
+

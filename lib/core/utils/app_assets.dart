@@ -22,9 +22,13 @@ class Assets {
   /// assets/images/forgot_password.png
   static const String imagesForgotPassword = "assets/images/forgot_password.png";
 
+  /// Assets for imagesFrame
+  /// assets/images/Frame.png
+  static const String imagesFrame = "assets/images/Frame.png";
+
   /// Assets for imagesInaciteveSearch
   /// assets/images/inaciteve_Search.svg
-  static const String imagesInactiveSearch = "assets/images/inaciteve_Search.svg";
+  static const String imagesInaciteveSearch = "assets/images/inaciteve_Search.svg";
 
   /// Assets for imagesInacitvePerson
   /// assets/images/inacitve_person.svg
@@ -37,6 +41,10 @@ class Assets {
   /// Assets for imagesInactiveShoppingCart
   /// assets/images/inactive_shopping-cart.svg
   static const String imagesInactiveShoppingCart = "assets/images/inactive_shopping-cart.svg";
+
+  /// Assets for imagesMenue
+  /// assets/images/menue.png
+  static const String imagesMenue = "assets/images/menue.png";
 
   /// Assets for imagesMosque
   /// assets/images/mosque.svg

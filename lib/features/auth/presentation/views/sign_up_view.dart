@@ -20,37 +20,27 @@ class SignUpView extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             slivers: [
-              SliverToBoxAdapter(
-                child: SizedBox(
+              SliverList(delegate: SliverChildListDelegate([
+                SizedBox(
                   height: 152,
                 ),
-              ),
-              SliverToBoxAdapter(
-                child: WellComeTextWidget(),
-              ),
-              SliverToBoxAdapter(
-                child: SizedBox(
+                WellComeTextWidget(),
+                SizedBox(
                   height: 40,
                 ),
-              ),
-              SliverToBoxAdapter(child: CustomSignUpForm()),
-              SliverToBoxAdapter(
-                child: SizedBox(
+                CustomSignUpForm(),
+                SizedBox(
                   height: 16,
                 ),
-              ),
-              SliverToBoxAdapter(
-                child: AuthQuestionActionRow(
+                AuthQuestionActionRow(
                   question: AppStrings.Already_have_an_account,
                   answer: AppStrings.Sign_In,
                   onTap: () => customReplaceNavigation(AppRouter.kLogInView),
                 ),
-              ),
-              SliverToBoxAdapter(
-                child: SizedBox(
+                SizedBox(
                   height: 16,
                 ),
-              ),
+              ])),
             ],
           ),
         ),

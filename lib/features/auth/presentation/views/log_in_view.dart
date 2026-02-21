@@ -16,16 +16,12 @@ class LogInView extends StatelessWidget {
         body: CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
-        SliverToBoxAdapter(
-          child: CustomWelcomeBanner(),
-        ),
-        SliverToBoxAdapter(
-          child: SizedBox(
+        SliverList(delegate: SliverChildListDelegate([
+          CustomWelcomeBanner(),
+          SizedBox(
             height: 32,
           ),
-        ),
-        SliverToBoxAdapter(
-          child: Column(
+          Column(
             children: [
               Text(
                 AppStrings.Welcome_Back,
@@ -42,7 +38,7 @@ class LogInView extends StatelessWidget {
                   onTap: () =>customReplaceNavigation(AppRouter.kSignUpView,),),
             ],
           ),
-        )
+        ]))
       ],
     ));
   }

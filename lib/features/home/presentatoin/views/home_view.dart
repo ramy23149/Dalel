@@ -1,6 +1,6 @@
-import 'package:dalel_app/core/utils/app_strings.dart';
-import 'package:dalel_app/core/widgets/custom_header_text.dart';
+import 'package:dalel_app/features/home/presentatoin/widgets/ancient_wars_section.dart';
 import 'package:dalel_app/features/home/presentatoin/widgets/custom_home_view_appBar.dart';
+import 'package:dalel_app/features/home/presentatoin/widgets/historical_characters_section.dart';
 import 'package:dalel_app/features/home/presentatoin/widgets/historical_periods_section.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +23,10 @@ class HomeView extends StatelessWidget {
               HistoricalPeriodsSection(),
               SizedBox(height: 32),
               HistoricalCharactersSection(),
-            ]))
+              SizedBox(height: 32),
+              AncientWarsSection(),
+              SizedBox(height: 32),
+            ])),
           ],
         ),
       ),
@@ -31,15 +34,3 @@ class HomeView extends StatelessWidget {
   }
 }
 
-class HistoricalCharactersSection extends StatelessWidget {
-  const HistoricalCharactersSection({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomHeaderText(text: AppStrings.historical_characters),
-      ],
-    );
-  }
-}

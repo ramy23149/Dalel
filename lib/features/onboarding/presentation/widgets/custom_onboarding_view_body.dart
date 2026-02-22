@@ -1,10 +1,11 @@
+import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:dalel_app/core/widgets/app_image_renderer.dart';
 import 'package:dalel_app/features/onboarding/data/models/on_boarding_model.dart';
 import 'package:dalel_app/features/onboarding/presentation/cubits/on_boarding_cubit/on_boarding_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'custom_smooth_page_indicator.dart';
+import '../../../../core/widgets/custom_smooth_page_indicator.dart';
 
 class CustomOnboardingViewBody extends StatelessWidget {
   const CustomOnboardingViewBody({
@@ -33,7 +34,13 @@ class CustomOnboardingViewBody extends StatelessWidget {
                         item.image,
                       ),
                       SizedBox(height: 24),
-                      CustomSmoothPageIndicator(cubit: cubit),
+                      CustomSmoothPageIndicator(
+                        controller: cubit.pageController,
+                        dotHeight: 6,
+                        dotWidth: 10,
+                        unselectedColor: AppColors.grey,
+                        selectedColor: AppColors.deepBrown,
+                        ),
                       SizedBox(height: 32),
                       Text(
                         item.title,

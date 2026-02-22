@@ -77,5 +77,6 @@ abstract class AppStrings {
   static const Send_Verification_Code = "Send Verification Code";
   static const Ancient_Egypt = "Ancient Egypt";
   static const historical_characters = "Historical Characters";
+  static const ancient_wars = "Ancient Wars";
 
 }

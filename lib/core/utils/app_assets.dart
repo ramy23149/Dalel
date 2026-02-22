@@ -18,6 +18,10 @@ class Assets {
   /// assets/images/active_shopping-cart.svg
   static const String imagesActiveShoppingCart = "assets/images/active_shopping-cart.svg";
 
+  /// Assets for imagesAncientWar
+  /// assets/images/ancient_war.jpg
+  static const String imagesAncientWar = "assets/images/ancient_war.jpg";
+
   /// Assets for imagesForgotPassword
   /// assets/images/forgot_password.png
   static const String imagesForgotPassword = "assets/images/forgot_password.png";
@@ -41,6 +45,10 @@ class Assets {
   /// Assets for imagesInactiveShoppingCart
   /// assets/images/inactive_shopping-cart.svg
   static const String imagesInactiveShoppingCart = "assets/images/inactive_shopping-cart.svg";
+
+  /// Assets for imagesLionHeartKing
+  /// assets/images/lion_heart_king.png
+  static const String imagesLionHeartKing = "assets/images/lion_heart_king.png";
 
   /// Assets for imagesMenue
   /// assets/images/menue.png

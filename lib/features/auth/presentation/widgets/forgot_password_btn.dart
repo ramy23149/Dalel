@@ -14,15 +14,15 @@ class ForgotPasswordBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-          alignment: Alignment.topRight,
-          child: CustomTextBtn(
-            text: AppStrings.Forgot_Password,
-            enableUnderLine: false,
-            style: AppTextStyles.poppins600style12.copyWith(
-              color: AppColors.deepGrey,
-            ),
-            onPressed: () => customPushNavigation(AppRouter.kForgotPasswordView),
-          ),
-        );
+      alignment: Alignment.topRight,
+      child: CustomTextBtn(
+        text: AppStrings.Forgot_Password,
+        enableUnderLine: false,
+        style: AppTextStyles.poppins600style12.copyWith(
+          color: AppColors.deepGrey,
+        ),
+        onPressed: () => customPushNavigation(AppRouter.kForgotPasswordView),
+      ),
+    );
   }
 }

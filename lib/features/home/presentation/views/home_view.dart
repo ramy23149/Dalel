@@ -1,7 +1,7 @@
-import 'package:dalel_app/features/home/presentatoin/widgets/ancient_wars_section.dart';
-import 'package:dalel_app/features/home/presentatoin/widgets/custom_home_view_appBar.dart';
-import 'package:dalel_app/features/home/presentatoin/widgets/historical_characters_section.dart';
-import 'package:dalel_app/features/home/presentatoin/widgets/historical_periods_section.dart';
+import 'package:dalel_app/features/home/presentation/widgets/ancient_wars_section.dart';
+import 'package:dalel_app/features/home/presentation/widgets/custom_home_view_appBar.dart';
+import 'package:dalel_app/features/home/presentation/widgets/historical_characters_section.dart';
+import 'package:dalel_app/features/home/presentation/widgets/historical_periods_section.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -33,4 +33,3 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-

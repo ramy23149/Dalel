@@ -16,9 +16,6 @@ class CustomTermsAndConditions extends StatefulWidget {
 }
 
 class _CustomTermsAndConditionsState extends State<CustomTermsAndConditions> {
-
-
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SignUpCubit, SignUpState>(

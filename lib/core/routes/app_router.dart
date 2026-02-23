@@ -4,9 +4,9 @@ import 'package:dalel_app/features/auth/presentation/cubits/signUp_cubit/signUp_
 import 'package:dalel_app/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/log_in_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/sign_up_view.dart';
-import 'package:dalel_app/features/home/presentatoin/cubits/nav_bar_cubit/nav_bar_cubit.dart';
-import 'package:dalel_app/features/home/presentatoin/views/home_nav_bar_view.dart';
-import 'package:dalel_app/features/home/presentatoin/views/home_view.dart';
+import 'package:dalel_app/features/home/presentation/cubits/nav_bar_cubit/nav_bar_cubit.dart';
+import 'package:dalel_app/features/home/presentation/views/home_nav_bar_view.dart';
+import 'package:dalel_app/features/home/presentation/views/home_view.dart';
 import 'package:dalel_app/features/onboarding/presentation/cubits/on_boarding_cubit/on_boarding_cubit.dart';
 import 'package:dalel_app/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:dalel_app/features/splash/presentation/cubit/splash_cubit.dart';
@@ -71,7 +71,6 @@ abstract class AppRouter {
           child: HomeNavBarView(),
         ),
       ),
-
     ],
   );
 }

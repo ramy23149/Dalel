@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
 enum SourceType {
   assets,
   network,
@@ -13,7 +12,13 @@ class AppImageRenderer extends StatefulWidget {
   final BoxFit fit;
   final double? height;
   final double? width;
-  const AppImageRenderer({super.key, required this.sourceType, required this.imageUrl, this.fit = BoxFit.contain, this.height, this.width});
+  const AppImageRenderer(
+      {super.key,
+      required this.sourceType,
+      required this.imageUrl,
+      this.fit = BoxFit.contain,
+      this.height,
+      this.width});
 
   static Widget network(
     String imageUrl, {
@@ -58,7 +63,8 @@ class _AppImageRendererState extends State<AppImageRenderer> {
 
   void checkUrl() {
     try {
-      String extintion = widget.imageUrl.substring(widget.imageUrl.length - 3, widget.imageUrl.length);
+      String extintion = widget.imageUrl
+          .substring(widget.imageUrl.length - 3, widget.imageUrl.length);
       if (extintion == "svg") {
         isSvg = true;
       }

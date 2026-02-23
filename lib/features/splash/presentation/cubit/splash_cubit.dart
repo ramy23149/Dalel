@@ -18,7 +18,7 @@ class SplashCubit extends Cubit<SplashState> {
     await Future.delayed(const Duration(seconds: 2));
 
     if (onBoardingViewed != null && onBoardingViewed) {
-      if (isLogin ) {
+      if (isLogin) {
         emit(NavigateToHome());
       } else {
         emit(NavigateToLoginView());

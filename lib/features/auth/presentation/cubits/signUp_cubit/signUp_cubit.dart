@@ -39,8 +39,8 @@ class SignUpCubit extends Cubit<SignUpState> {
       final credential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
               email: emailController.text, password: passwordController.text);
-    await  createUserProfile();
-    await _verifyEmail();
+      await createUserProfile();
+      await _verifyEmail();
       log("user ${credential.user} created successfully");
       emit(SignUpSuccess(message: AppStrings.check_your_email));
       showFlutterToast(message: AppStrings.check_your_email);

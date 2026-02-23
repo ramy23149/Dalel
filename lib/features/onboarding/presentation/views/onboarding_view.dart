@@ -16,7 +16,8 @@ class OnboardingView extends StatelessWidget {
     return BlocBuilder<OnBoardingCubit, OnBoardingState>(
       builder: (context, state) {
         final cubit = OnBoardingCubit.get(context);
-        bool isLast = cubit.currentPage == OnBoardingModel.onBoardingDataList.length - 1;
+        bool isLast =
+            cubit.currentPage == OnBoardingModel.onBoardingDataList.length - 1;
         return SafeArea(
           child: Scaffold(
             body: Padding(
@@ -26,17 +27,13 @@ class OnboardingView extends StatelessWidget {
                   SizedBox(
                     height: 40,
                   ),
-                  isLast
-                      ? const SizedBox.shrink()
-                      : CustomNavBar(cubit: cubit),
+                  isLast ? const SizedBox.shrink() : CustomNavBar(cubit: cubit),
                   CustomOnboardingViewBody(),
                   SizedBox(
                     height: 88,
                   ),
                   CustomBotton(
-                    text: isLast
-                        ? AppStrings.Create_Account
-                        : AppStrings.Next,
+                    text: isLast ? AppStrings.Create_Account : AppStrings.Next,
                     onPressed: () => cubit.nextPage(),
                   ),
                   SizedBox(height: 16),
@@ -60,4 +57,3 @@ class OnboardingView extends StatelessWidget {
     );
   }
 }
-

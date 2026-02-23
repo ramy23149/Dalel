@@ -20,7 +20,8 @@ class SignUpView extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             slivers: [
-              SliverList(delegate: SliverChildListDelegate([
+              SliverList(
+                  delegate: SliverChildListDelegate([
                 SizedBox(
                   height: 152,
                 ),
@@ -48,4 +49,3 @@ class SignUpView extends StatelessWidget {
     );
   }
 }
-

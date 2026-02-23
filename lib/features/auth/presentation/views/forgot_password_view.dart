@@ -63,11 +63,13 @@ class ForgotPasswordView extends StatelessWidget {
                     SizedBox(
                       height: 130,
                     ),
-                  state is ResetPasswordLoading ? const CustomLoadingIndecator() :  CustomBotton(
-                      text: AppStrings.Send_Verification_Code,
-                      textColor: AppColors.white,
-                      onPressed: () => cubit.resetPassword(),
-                    ),
+                    state is ResetPasswordLoading
+                        ? const CustomLoadingIndecator()
+                        : CustomBotton(
+                            text: AppStrings.Send_Verification_Code,
+                            textColor: AppColors.white,
+                            onPressed: () => cubit.resetPassword(),
+                          ),
                     SizedBox(
                       height: 18,
                     ),

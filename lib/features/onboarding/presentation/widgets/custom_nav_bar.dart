@@ -3,7 +3,6 @@ import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:dalel_app/features/onboarding/presentation/cubits/on_boarding_cubit/on_boarding_cubit.dart';
 import 'package:flutter/material.dart';
 
-
 class CustomNavBar extends StatelessWidget {
   const CustomNavBar({
     super.key,
@@ -15,14 +14,14 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-        alignment: Alignment.topRight,
-        child: GestureDetector(
-          onTap: () => cubit.skip(),
-          child: Text(
-            AppStrings.Skip,
-            style: AppTextStyles.poppins400style16,
-          ),
+      alignment: Alignment.topRight,
+      child: GestureDetector(
+        onTap: () => cubit.skip(),
+        child: Text(
+          AppStrings.Skip,
+          style: AppTextStyles.poppins400style16,
         ),
-      );
+      ),
+    );
   }
 }

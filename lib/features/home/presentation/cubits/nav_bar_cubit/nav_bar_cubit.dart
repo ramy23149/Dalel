@@ -1,7 +1,7 @@
 import 'package:dalel_app/core/utils/app_assets.dart';
 import 'package:dalel_app/core/widgets/app_image_renderer.dart';
 import 'package:dalel_app/features/cart/presentation/views/cart_view.dart';
-import 'package:dalel_app/features/home/presentatoin/views/home_view.dart';
+import 'package:dalel_app/features/home/presentation/views/home_view.dart';
 import 'package:dalel_app/features/profile/presentation/views/profile_view.dart';
 import 'package:dalel_app/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +40,8 @@ class NavBarCubit extends Cubit<NavBarState> {
       ),
       PersistentBottomNavBarItem(
         icon: AppImageRenderer.assets(Assets.imagesActiveShoppingCart),
-        inactiveIcon: AppImageRenderer.assets(Assets.imagesInactiveShoppingCart),
+        inactiveIcon:
+            AppImageRenderer.assets(Assets.imagesInactiveShoppingCart),
       ),
       PersistentBottomNavBarItem(
         icon: AppImageRenderer.assets(Assets.imagesActiveSearch),
@@ -53,12 +54,9 @@ class NavBarCubit extends Cubit<NavBarState> {
     ];
   }
 
-
-
-@override
-Future<void> close() {
+  @override
+  Future<void> close() {
     controller.dispose();
     return super.close();
-}
   }
-
+}

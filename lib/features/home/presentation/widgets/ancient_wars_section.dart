@@ -15,17 +15,16 @@ class AncientWarsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomHeaderText(text: AppStrings.ancient_wars),
-        SizedBox(height: 16),        
+        SizedBox(height: 16),
         Stack(
           children: [
             AspectRatio(
-              aspectRatio: 16/9,
+              aspectRatio: 16 / 9,
               child: PageView.builder(
-              itemCount: 3,
-              itemBuilder: (context, index) =>
-               ClipRRect(
-                borderRadius: BorderRadiusGeometry.circular(12),
-                child: AppImageRenderer.assets(Assets.imagesAncientWar))),
+                  itemCount: 3,
+                  itemBuilder: (context, index) => ClipRRect(
+                      borderRadius: BorderRadiusGeometry.circular(12),
+                      child: AppImageRenderer.assets(Assets.imagesAncientWar))),
             ),
             Positioned.fill(
               bottom: 8,
@@ -46,5 +45,3 @@ class AncientWarsSection extends StatelessWidget {
     );
   }
 }
-
-

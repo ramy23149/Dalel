@@ -1,6 +1,6 @@
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/widgets/custom_header_text.dart';
-import 'package:dalel_app/features/home/presentatoin/widgets/custom_category_list_view_item.dart';
+import 'package:dalel_app/features/home/presentation/widgets/custom_category_list_view_item.dart';
 import 'package:flutter/material.dart';
 
 class HistoricalCharactersSection extends StatelessWidget {

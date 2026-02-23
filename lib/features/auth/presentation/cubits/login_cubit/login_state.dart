@@ -1,6 +1,6 @@
 part of 'login_cubit.dart';
 
- class LoginState {}
+class LoginState {}
 
 final class LoginInitial extends LoginState {}
 

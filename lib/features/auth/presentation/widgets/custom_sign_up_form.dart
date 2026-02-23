@@ -51,16 +51,18 @@ class CustomSignUpForm extends StatelessWidget {
               CustomTermsAndConditions(),
               SizedBox(
                 height: 88,
-              ), 
-            state is SignUpLoading ? const CustomLoadingIndecator() :  CustomBotton(
-                backgroundColor: cubit.isConfirmTermsAndConditions
-                    ? AppColors.primaryColor
-                    : AppColors.grey,
-                text: AppStrings.Sign_Up,
-                onPressed: cubit.isConfirmTermsAndConditions
-                    ? () => cubit.validateForm()
-                    : null,
               ),
+              state is SignUpLoading
+                  ? const CustomLoadingIndecator()
+                  : CustomBotton(
+                      backgroundColor: cubit.isConfirmTermsAndConditions
+                          ? AppColors.primaryColor
+                          : AppColors.grey,
+                      text: AppStrings.Sign_Up,
+                      onPressed: cubit.isConfirmTermsAndConditions
+                          ? () => cubit.validateForm()
+                          : null,
+                    ),
             ],
           ),
         );

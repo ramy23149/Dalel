@@ -12,7 +12,7 @@ class OnBoardingModel {
     required this.description,
   });
 
-    static final List<OnBoardingModel> onBoardingDataList = [
+  static final List<OnBoardingModel> onBoardingDataList = [
     OnBoardingModel(
       image: Assets.imagesOnbording1,
       title: AppStrings.Explore_The_history_with_Dalel_in_a_smart_way,

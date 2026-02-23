@@ -9,7 +9,8 @@ class CustomTextBtn extends StatelessWidget {
       required this.text,
       this.enableUnderLine = true,
       this.foregroundColor,
-      this.padding, this.style});
+      this.padding,
+      this.style});
   final VoidCallback? onPressed;
   final String text;
   final Color? foregroundColor;
@@ -23,12 +24,16 @@ class CustomTextBtn extends StatelessWidget {
           padding: padding,
           foregroundColor: foregroundColor ?? AppColors.deepGrey,
           textStyle: AppTextStyles.poppins400style16.copyWith(
-            decoration: enableUnderLine ? TextDecoration.combine(
-              [TextDecoration.underline, TextDecoration.none],
-            ):null
-          ),
+              decoration: enableUnderLine
+                  ? TextDecoration.combine(
+                      [TextDecoration.underline, TextDecoration.none],
+                    )
+                  : null),
         ),
         onPressed: onPressed,
-        child: Text(text,style: style,));
+        child: Text(
+          text,
+          style: style,
+        ));
   }
 }

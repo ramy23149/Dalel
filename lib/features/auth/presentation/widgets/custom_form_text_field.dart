@@ -10,7 +10,8 @@ class CustomFormTextField extends StatefulWidget {
       this.controller,
       this.isPasswordTextField = false,
       this.inputFormatters,
-      this.keyboardType, this.validator});
+      this.keyboardType,
+      this.validator});
   final String labelText;
   final TextEditingController? controller;
   final bool isPasswordTextField;
@@ -38,12 +39,13 @@ class _CustomFormTextFieldState extends State<CustomFormTextField> {
       child: TextFormField(
         keyboardType: widget.keyboardType,
         inputFormatters: widget.inputFormatters,
-        validator: widget.validator ?? (value) {
-          if (value == null || value.isEmpty) {
-            return 'Please enter some text';
-          }
-          return null;
-        },
+        validator: widget.validator ??
+            (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
         autovalidateMode: AutovalidateMode.onUserInteraction,
         obscureText: widget.isPasswordTextField ? obscureText : false,
         obscuringCharacter: "●",

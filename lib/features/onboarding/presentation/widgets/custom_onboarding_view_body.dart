@@ -19,7 +19,7 @@ class CustomOnboardingViewBody extends StatelessWidget {
         final cubit = OnBoardingCubit.get(context);
         final screenHeight = MediaQuery.of(context).size.height;
         return SizedBox(
-       height: screenHeight * 0.7,
+          height: screenHeight * 0.7,
           child: PageView.builder(
               physics: BouncingScrollPhysics(),
               onPageChanged: cubit.onPageChanged,
@@ -40,7 +40,7 @@ class CustomOnboardingViewBody extends StatelessWidget {
                         dotWidth: 10,
                         unselectedColor: AppColors.grey,
                         selectedColor: AppColors.deepBrown,
-                        ),
+                      ),
                       SizedBox(height: 32),
                       Text(
                         item.title,

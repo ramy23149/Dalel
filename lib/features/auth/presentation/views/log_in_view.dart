@@ -16,7 +16,8 @@ class LogInView extends StatelessWidget {
         body: CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
-        SliverList(delegate: SliverChildListDelegate([
+        SliverList(
+            delegate: SliverChildListDelegate([
           CustomWelcomeBanner(),
           SizedBox(
             height: 32,
@@ -33,9 +34,12 @@ class LogInView extends StatelessWidget {
               ),
               CustomLoginForm(),
               AuthQuestionActionRow(
-                  question: AppStrings.Do_not_have_an_account,
-                  answer: AppStrings.Sign_Up,
-                  onTap: () =>customReplaceNavigation(AppRouter.kSignUpView,),),
+                question: AppStrings.Do_not_have_an_account,
+                answer: AppStrings.Sign_Up,
+                onTap: () => customReplaceNavigation(
+                  AppRouter.kSignUpView,
+                ),
+              ),
             ],
           ),
         ]))

@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'reset_password_state.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordState> {
-  ResetPasswordCubit() : super(ResetPasswordInitial()){
+  ResetPasswordCubit() : super(ResetPasswordInitial()) {
     _init();
   }
 
@@ -20,30 +20,29 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
     formKey = GlobalKey<FormState>();
   }
 
-late final TextEditingController emailController;
-late final GlobalKey<FormState> formKey;
+  late final TextEditingController emailController;
+  late final GlobalKey<FormState> formKey;
 
-Future<void> resetPassword() async {
-  if (formKey.currentState!.validate()) {
-    emit(ResetPasswordLoading());
-  
-  try {
-    await FirebaseAuth.instance.sendPasswordResetEmail(email: emailController.text);
-    showFlutterToast(message: AppStrings.check_your_email);
-    emit(ResetPasswordSuccess());
-  } catch (e) {
-    log(e.toString());
-    showFlutterToast(message: e.toString());
-    emit(ResetPasswordError(errMessage: e.toString()));
+  Future<void> resetPassword() async {
+    if (formKey.currentState!.validate()) {
+      emit(ResetPasswordLoading());
+
+      try {
+        await FirebaseAuth.instance
+            .sendPasswordResetEmail(email: emailController.text);
+        showFlutterToast(message: AppStrings.check_your_email);
+        emit(ResetPasswordSuccess());
+      } catch (e) {
+        log(e.toString());
+        showFlutterToast(message: e.toString());
+        emit(ResetPasswordError(errMessage: e.toString()));
+      }
+      emit(ResetPasswordInitial());
+    }
   }
-  emit(ResetPasswordInitial());
-  }
-}
 
-
-
-@override
-Future<void> close() {
+  @override
+  Future<void> close() {
     emailController.dispose();
     return super.close();
   }

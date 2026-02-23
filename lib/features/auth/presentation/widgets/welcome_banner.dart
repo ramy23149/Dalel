@@ -16,17 +16,16 @@ class CustomWelcomeBanner extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Text(AppStrings.appName,style: AppTextStyles.saira700style32,),
+          Text(
+            AppStrings.appName,
+            style: AppTextStyles.saira700style32,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              AppImageRenderer.assets(
-                Assets.imagesPeramides
-              ),
-              AppImageRenderer.assets(
-                Assets.imagesMosque
-              )
+              AppImageRenderer.assets(Assets.imagesPeramides),
+              AppImageRenderer.assets(Assets.imagesMosque)
             ],
           )
         ],

@@ -40,15 +40,14 @@ class CustomLoginForm extends StatelessWidget {
                       labelText: AppStrings.Password,
                       isPasswordTextField: true,
                     ),
-                  
                   ],
                 ),
               ),
             ),
-              ForgotPasswordBtn(),
-                    SizedBox(
-                      height: 102,
-                    ),
+            ForgotPasswordBtn(),
+            SizedBox(
+              height: 102,
+            ),
             state is LoginLoading
                 ? CustomLoadingIndecator()
                 : Padding(

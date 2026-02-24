@@ -1,5 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shimmer/shimmer.dart';
 
 enum SourceType {
   assets,
@@ -96,9 +99,29 @@ class _AppImageRendererState extends State<AppImageRenderer> {
       // if (png , jpg , gif)  and other
       if (widget.sourceType == SourceType.network) {
         // if network
-        image = Image.network(
-          widget.imageUrl,
+        image = CachedNetworkImage(
+          height: widget.height,
+          width: widget.width,
+          imageUrl: widget.imageUrl,
           fit: widget.fit,
+          placeholder: (context, url) {
+            return Shimmer.fromColors(
+              baseColor: AppColors.grey,
+              highlightColor: AppColors.white,
+              child: Container(
+                height: 35,
+                width: 30,
+                decoration: BoxDecoration(
+                  color: AppColors.grey,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
+            );
+          },
+          errorWidget: (context, url, error) => const Icon(
+            Icons.error,
+            color: Colors.red,
+          ),
         );
       } else {
         // if assets

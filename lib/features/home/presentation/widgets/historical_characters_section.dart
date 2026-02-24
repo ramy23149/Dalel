@@ -1,7 +1,7 @@
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:dalel_app/core/widgets/custom_header_text.dart';
-import 'package:dalel_app/core/widgets/custom_loading_indecator.dart';
+import 'package:dalel_app/core/widgets/custom_loading_indecator_list.dart';
 import 'package:dalel_app/features/home/presentation/cubits/historical_characters_cubit/historical_characters_cubit.dart';
 import 'package:dalel_app/core/widgets/custom_category_list_view_item.dart';
 import 'package:flutter/material.dart';
@@ -20,9 +20,7 @@ class HistoricalCharactersSection extends StatelessWidget {
         BlocBuilder<HistoricalCharactersCubit, HistoricalCharactersState>(
           builder: (context, state) {
             if (state is HistoricalCharactersLoading) {
-              return const Center(
-                child: CustomLoadingIndecator(),
-              );
+            return CustomLoadingIndecatorList(wideContainer: false,);
             } else if (state is HistoricalCharactersError) {
               return Center(
                 child: Text(
@@ -31,6 +29,7 @@ class HistoricalCharactersSection extends StatelessWidget {
                 ),
               );
             } else if (state is HistoricalCharactersLoaded) {
+              
               return SizedBox(
                 height: 185,
                 child: ListView.builder(

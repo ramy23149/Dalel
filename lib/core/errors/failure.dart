@@ -80,6 +80,7 @@ class ServerFailure extends Failure {
         message: 'Data format error from server',
       );
     } else if (error is TypeError) {
+      log('Error: $error');
       return ServerFailure(
         message: 'Data type error from server',
       );

@@ -1,5 +1,6 @@
 import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/features/home/data/repos/home_repo_impl.dart';
+import 'package:dalel_app/features/home/presentation/cubits/historical_characters_cubit/historical_characters_cubit.dart';
 import 'package:dalel_app/features/home/presentation/cubits/historical_periods_cubit/historical_periods_cubit.dart';
 import 'package:dalel_app/features/home/presentation/widgets/ancient_wars_section.dart';
 import 'package:dalel_app/features/home/presentation/widgets/custom_home_view_appBar.dart';
@@ -13,10 +14,19 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          HistoricalPeriodsCubit(homeRepo: getIt.get<HomeRepoImpl>())
-            ..getHistoricalPeriods(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              HistoricalPeriodsCubit(homeRepo: getIt.get<HomeRepoImpl>())
+                ..getHistoricalPeriods(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              HistoricalCharactersCubit(homeRepo: getIt.get<HomeRepoImpl>())
+                ..getHistoricalCharacters(),
+        ),
+      ],
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),

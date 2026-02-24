@@ -32,6 +32,7 @@ class HistoricalPeriodsSection extends StatelessWidget {
               return SizedBox(
                 height: 100,
                 child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: state.historicalPeriodsModels.length,
                   itemBuilder: (context, index) => HistoricalPeriodItem(

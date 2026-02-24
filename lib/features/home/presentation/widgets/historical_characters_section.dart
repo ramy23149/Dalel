@@ -1,7 +1,11 @@
 import 'package:dalel_app/core/utils/app_strings.dart';
+import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:dalel_app/core/widgets/custom_header_text.dart';
-import 'package:dalel_app/features/home/presentation/widgets/custom_category_list_view_item.dart';
+import 'package:dalel_app/core/widgets/custom_loading_indecator.dart';
+import 'package:dalel_app/features/home/presentation/cubits/historical_characters_cubit/historical_characters_cubit.dart';
+import 'package:dalel_app/core/widgets/custom_category_list_view_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HistoricalCharactersSection extends StatelessWidget {
   const HistoricalCharactersSection({super.key});
@@ -13,14 +17,36 @@ class HistoricalCharactersSection extends StatelessWidget {
       children: [
         CustomHeaderText(text: AppStrings.historical_characters),
         SizedBox(height: 16),
-        SizedBox(
-          height: 185,
-          child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            itemBuilder: (context, index) => CustomCategoryListViewItem(),
-            itemCount: 6,
-            scrollDirection: Axis.horizontal,
-          ),
+        BlocBuilder<HistoricalCharactersCubit, HistoricalCharactersState>(
+          builder: (context, state) {
+            if (state is HistoricalCharactersLoading) {
+              return const Center(
+                child: CustomLoadingIndecator(),
+              );
+            } else if (state is HistoricalCharactersError) {
+              return Center(
+                child: Text(
+                  state.message,
+                  style: AppTextStyles.poppins400style16,
+                ),
+              );
+            } else if (state is HistoricalCharactersLoaded) {
+              return SizedBox(
+                height: 185,
+                child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  itemBuilder: (context, index) => CustomCategoryListViewItem(
+                    name:
+                        state.historicalCharactersModels[index].name,
+                    image: state.historicalCharactersModels[index].image!,
+                  ),
+                  itemCount: state.historicalCharactersModels.length,
+                  scrollDirection: Axis.horizontal,
+                ),
+              );
+            }
+            return Container();
+          },
         ),
       ],
     );

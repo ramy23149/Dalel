@@ -1,11 +1,11 @@
-import 'war.dart';
+import 'historical_period_war_model.dart';
 
 class HistoricalPeriodsModel {
   String? id;
   String name;
   String? image;
   String description;
-  List<War>? wars;
+  List<HistoricalPeriodWarModel>? wars;
 
   HistoricalPeriodsModel({
     this.id,
@@ -22,7 +22,7 @@ class HistoricalPeriodsModel {
       image: json['image'] as String?,
       description: json['description'] as String,
       wars: (json['wars'] as List<dynamic>?)
-          ?.map((e) => War.fromFrom(e as Map<String, dynamic>))
+          ?.map((e) => HistoricalPeriodWarModel.fromFrom(e as Map<String, dynamic>))
           .toList(),
     );
   }

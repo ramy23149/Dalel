@@ -1,19 +1,19 @@
-class War {
+class HistoricalCharacterWarModel {
   String? id;
   String? name;
   String? image;
   String? description;
 
-  War({this.id, this.name, this.image, this.description});
+  HistoricalCharacterWarModel({this.id, this.name, this.image, this.description});
 
-  factory War.fromFrom(Map<String, dynamic> json) => War(
+  factory HistoricalCharacterWarModel.fromTo(Map<String, dynamic> json) => HistoricalCharacterWarModel(
         id: json['id'] as String?,
         name: json['name'] as String?,
         image: json['image'] as String?,
         description: json['description'] as String?,
       );
 
-  Map<String, dynamic> toFrom() => {
+  Map<String, dynamic> toTo() => {
         'id': id,
         'name': name,
         'image': image,

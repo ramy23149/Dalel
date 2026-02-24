@@ -1,6 +1,6 @@
-import 'war.dart';
+import 'historical_character_war_model.dart';
 
-class HistoricalCharacter {
+class HistoricalCharacterModel {
 	String? id;
 	String name;
 	String? image;
@@ -8,9 +8,9 @@ class HistoricalCharacter {
 	String birthYear;
 	String deathYear;
 	String fullDescription;
-	List<War>? wars;
+	List<HistoricalCharacterWarModel>? wars;
 
-	HistoricalCharacter({
+	HistoricalCharacterModel({
 		this.id, 
 	required	this.name, 
 		this.image, 
@@ -21,17 +21,17 @@ class HistoricalCharacter {
 		this.wars, 
 	});
 
-	factory HistoricalCharacter.fromQuerySnapshot(Map<String, dynamic> json) {
-		return HistoricalCharacter(
+	factory HistoricalCharacterModel.fromQuerySnapshot(Map<String, dynamic> json) {
+		return HistoricalCharacterModel(
 			id: json['id'] as String?,
 			name: json['name'] as String,
 			image: json['image'] as String?,
 			homeImage: json['homeImage'] as String?,
 			birthYear: json['birthYear'] as String,
 			deathYear: json['deathYear'] as String,
-			fullDescription: json['fullDescription'] as String,
+			fullDescription: json['description'] as String,
 			wars: (json['wars'] as List<dynamic>?)
-						?.map((e) => War.fromTo(e as Map<String, dynamic>))
+						?.map((e) => HistoricalCharacterWarModel.fromTo(e as Map<String, dynamic>))
 						.toList(),
 		);
 	}

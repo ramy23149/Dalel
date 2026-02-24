@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dalel_app/core/errors/failure.dart';
 import 'package:dalel_app/features/home/data/data_source/remote_data_source.dart';
-import 'package:dalel_app/features/home/data/models/historical_character/historical_character.dart';
+import 'package:dalel_app/features/home/data/models/historical_character_model/historical_character_model.dart';
 import 'package:dalel_app/features/home/data/models/historical_periods_model/historical_periods_model.dart';
 import 'package:dalel_app/features/home/repo/home_repo.dart';
 import 'package:dartz/dartz.dart';
@@ -11,10 +11,10 @@ class HomeRepoImpl implements HomeRepo {
 
   HomeRepoImpl({required this.homeRemoteDataSource});
   @override
-  Future<Either<Failure, List<HistoricalCharacter>>>
+  Future<Either<Failure, List<HistoricalCharacterModel>>>
       getHistoricalCharacters()async {
     try {
-      List<HistoricalCharacter> historicalCharacters =
+      List<HistoricalCharacterModel> historicalCharacters =
           await homeRemoteDataSource.getHistoricalCharacters();
 
       return Right(historicalCharacters);

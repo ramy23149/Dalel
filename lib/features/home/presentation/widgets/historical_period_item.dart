@@ -35,9 +35,11 @@ class HistoricalPeriodItem extends StatelessWidget {
             SizedBox(
               width: 24,
             ),
-            if(historicalPeriodsModel.image != null)
-            AppImageRenderer.network(
-              historicalPeriodsModel.image!,fit: BoxFit.contain,)
+            if (historicalPeriodsModel.image != null)
+              AppImageRenderer.network(
+                historicalPeriodsModel.image!,
+                fit: BoxFit.contain,
+              )
           ],
         ),
       ),

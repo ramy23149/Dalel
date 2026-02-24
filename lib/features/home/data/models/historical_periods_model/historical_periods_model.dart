@@ -9,9 +9,9 @@ class HistoricalPeriodsModel {
 
   HistoricalPeriodsModel({
     this.id,
-  required  this.name,
+    required this.name,
     this.image,
-  required  this.description,
+    required this.description,
     this.wars,
   });
 

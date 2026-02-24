@@ -12,11 +12,11 @@ class HistoricalPeriodsCubit extends Cubit<HistoricalPeriodsState> {
   Future<void> getHistoricalPeriods() async {
     emit(HistoricalPeriodsLoading());
     final result = await homeRepo.getHistoricalPeriods();
-    result.fold((err) => emit(HistoricalPeriodsError(
-      message: err.message,
-    )),
+    result.fold(
+        (err) => emit(HistoricalPeriodsError(
+              message: err.message,
+            )),
         (historicalPeriodsModelsList) => emit(HistoricalPeriodsLoaded(
-          historicalPeriodsModels: historicalPeriodsModelsList
-        )));
+            historicalPeriodsModels: historicalPeriodsModelsList)));
   }
 }

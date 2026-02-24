@@ -28,25 +28,27 @@ class HistoricalPeriodsSection extends StatelessWidget {
               return const Center(
                 child: CustomLoadingIndecator(),
               );
-            }else if(state is HistoricalPeriodsLoaded){
-            return SizedBox(
-              height: 100,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: state.historicalPeriodsModels.length,
-                itemBuilder: (context, index) => HistoricalPeriodItem(
-                  historicalPeriodsModel: state.historicalPeriodsModels[index],
+            } else if (state is HistoricalPeriodsLoaded) {
+              return SizedBox(
+                height: 100,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: state.historicalPeriodsModels.length,
+                  itemBuilder: (context, index) => HistoricalPeriodItem(
+                    historicalPeriodsModel:
+                        state.historicalPeriodsModels[index],
+                  ),
                 ),
-              ),
-            );
-            }else if(state is HistoricalPeriodsError){
+              );
+            } else if (state is HistoricalPeriodsError) {
               return Center(
-                child: Text(state.message,
-                style: AppTextStyles.poppins400style16,),
+                child: Text(
+                  state.message,
+                  style: AppTextStyles.poppins400style16,
+                ),
               );
             }
             return Container();
-            
           },
         )
       ],

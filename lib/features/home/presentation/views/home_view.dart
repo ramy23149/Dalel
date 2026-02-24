@@ -14,9 +14,9 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HistoricalPeriodsCubit(
-        homeRepo: getIt.get<HomeRepoImpl>()
-      )..getHistoricalPeriods(),
+      create: (context) =>
+          HistoricalPeriodsCubit(homeRepo: getIt.get<HomeRepoImpl>())
+            ..getHistoricalPeriods(),
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),

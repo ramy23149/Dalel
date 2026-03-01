@@ -5,7 +5,6 @@ import 'package:dalel_app/core/widgets/custom_loading_indecator_list.dart';
 import 'package:dalel_app/features/home/presentation/cubits/historical_periods_cubit/historical_periods_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'historical_period_item.dart';
 
 class HistoricalPeriodsSection extends StatelessWidget {
@@ -27,6 +26,7 @@ class HistoricalPeriodsSection extends StatelessWidget {
             if (state is HistoricalPeriodsLoading) {
             return CustomLoadingIndecatorList(wideContainer: true,);
             } else if (state is HistoricalPeriodsLoaded) {
+            //  log("${state.historicalPeriodsModels.first.wars.toString()} here is ramyyyyyyyyyyyyyyyyyyy");
               return SizedBox(
                 height: 100,
                 child: ListView.builder(

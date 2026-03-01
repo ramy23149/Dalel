@@ -4,7 +4,9 @@ import 'package:dalel_app/features/auth/presentation/cubits/signUp_cubit/signUp_
 import 'package:dalel_app/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/log_in_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/sign_up_view.dart';
+import 'package:dalel_app/features/home/data/models/war_model/war_model.dart';
 import 'package:dalel_app/features/home/presentation/cubits/nav_bar_cubit/nav_bar_cubit.dart';
+import 'package:dalel_app/features/home/presentation/views/historical_period_details_view.dart';
 import 'package:dalel_app/features/home/presentation/views/home_nav_bar_view.dart';
 import 'package:dalel_app/features/home/presentation/views/home_view.dart';
 import 'package:dalel_app/features/onboarding/presentation/cubits/on_boarding_cubit/on_boarding_cubit.dart';
@@ -22,6 +24,8 @@ abstract class AppRouter {
   static const String kHomeView = '/HomeVeiw';
   static const String kForgotPasswordView = '/ForgotPasswordView';
   static const String kHomeNavBarView = '/HomeNavBarView';
+  static const String kHistoricalPeriodDetailsView = '/HistoricalPeriodDetailsView';
+
 
   static GoRouter router = GoRouter(
     routes: <RouteBase>[
@@ -69,6 +73,12 @@ abstract class AppRouter {
         builder: (context, state) => BlocProvider(
           create: (context) => NavBarCubit(),
           child: HomeNavBarView(),
+        ),
+      ),
+      GoRoute(
+        path: kHistoricalPeriodDetailsView,
+        builder: (context, state) => HistoricalPeriodDetailsView(
+          warsModels: state.extra as List<WarModel>,
         ),
       ),
     ],

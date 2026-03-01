@@ -1,4 +1,3 @@
-import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:dalel_app/core/widgets/custom_header_text.dart';
 import 'package:dalel_app/core/widgets/custom_loading_indecator_list.dart';
@@ -8,19 +7,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HistoricalCharactersSection extends StatelessWidget {
-  const HistoricalCharactersSection({super.key});
-
+  const HistoricalCharactersSection({super.key, required this.headerText});
+  final String headerText;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomHeaderText(text: AppStrings.historical_characters),
+        CustomHeaderText(text: headerText),
         SizedBox(height: 16),
         BlocBuilder<HistoricalCharactersCubit, HistoricalCharactersState>(
           builder: (context, state) {
             if (state is HistoricalCharactersLoading) {
-            return CustomLoadingIndecatorList(wideContainer: false,);
+              return CustomLoadingIndecatorList(
+                wideContainer: false,
+              );
             } else if (state is HistoricalCharactersError) {
               return Center(
                 child: Text(
@@ -29,14 +30,12 @@ class HistoricalCharactersSection extends StatelessWidget {
                 ),
               );
             } else if (state is HistoricalCharactersLoaded) {
-              
               return SizedBox(
                 height: 185,
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) => CustomCategoryListViewItem(
-                    name:
-                        state.historicalCharactersModels[index].name,
+                    name: state.historicalCharactersModels[index].name,
                     image: state.historicalCharactersModels[index].image!,
                   ),
                   itemCount: state.historicalCharactersModels.length,

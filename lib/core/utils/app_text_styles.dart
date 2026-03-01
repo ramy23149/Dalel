@@ -63,6 +63,12 @@ abstract class AppTextStyles {
     color: AppColors.black,
     fontFamily: kPoppinsFontFamily,
   );
+  static final poppins600style14 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    color: AppColors.black,
+    fontFamily: kPoppinsFontFamily,
+  );
   static final poppins500style18 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,
@@ -73,6 +79,12 @@ abstract class AppTextStyles {
     fontSize: 16,
     fontWeight: FontWeight.w500,
     color: AppColors.grey,
+    fontFamily: kPoppinsFontFamily,
+  );
+  static final poppins500style14 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColors.black,
     fontFamily: kPoppinsFontFamily,
   );
   static final poppins300style16 = TextStyle(

@@ -31,6 +31,7 @@ abstract class AppStrings {
   static const String Forgot_Password = "Forgot Password ?";
   static const String Historical_periods = "Historical periods";
   static const String Ancient_Wars = "Ancient Wars";
+  static const String Wars = "Wars";
   static const String Recommendations = "Recommendations";
   static const String Recent = "Recent";
   static const String Profile = "Profile";
@@ -79,4 +80,6 @@ abstract class AppStrings {
   static const Ancient_Egypt = "Ancient Egypt";
   static const historical_characters = "Historical Characters";
   static const ancient_wars = "Ancient Wars";
+  static const about = "About";
+
 }

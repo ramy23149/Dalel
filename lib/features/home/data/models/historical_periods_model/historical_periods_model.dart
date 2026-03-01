@@ -1,29 +1,28 @@
-import 'historical_period_war_model.dart';
+import 'package:dalel_app/features/home/data/models/war_model/war_model.dart';
+
 
 class HistoricalPeriodsModel {
   String? id;
   String name;
   String? image;
   String description;
-  List<HistoricalPeriodWarModel>? wars;
+  List<WarModel> wars;
 
   HistoricalPeriodsModel({
     this.id,
     required this.name,
     this.image,
     required this.description,
-    this.wars,
+    required this.wars,
   });
 
-  factory HistoricalPeriodsModel.fromQuerySnapshot(Map<String, dynamic> json) {
+  factory HistoricalPeriodsModel.fromQuerySnapshot(Map<String, dynamic> json,List<WarModel> wars) {
     return HistoricalPeriodsModel(
       id: json['id'] as String?,
       name: json['name'] as String,
       image: json['image'] as String?,
       description: json['description'] as String,
-      wars: (json['wars'] as List<dynamic>?)
-          ?.map((e) => HistoricalPeriodWarModel.fromFrom(e as Map<String, dynamic>))
-          .toList(),
+      wars: wars,
     );
   }
 
@@ -32,6 +31,6 @@ class HistoricalPeriodsModel {
         'name': name,
         'image': image,
         'description': description,
-        'wars': wars?.map((e) => e.toFrom()).toList(),
+        'wars': wars.map((e) => e.toJson()).toList(),
       };
 }

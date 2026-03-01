@@ -1,23 +1,16 @@
-import 'package:dalel_app/core/functions/custom_navigation.dart';
-import 'package:dalel_app/core/routes/app_router.dart';
 import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:dalel_app/core/widgets/app_image_renderer.dart';
-import 'package:dalel_app/features/home/data/models/historical_periods_model/historical_periods_model.dart';
+import 'package:dalel_app/features/home/data/models/war_model/war_model.dart';
 import 'package:flutter/material.dart';
 
-class HistoricalPeriodItem extends StatelessWidget {
-  const HistoricalPeriodItem({
-    super.key,
-    required this.historicalPeriodsModel,
-  });
-  final HistoricalPeriodsModel historicalPeriodsModel;
-
+class HistoricalWarItem extends StatelessWidget {
+  const HistoricalWarItem({super.key, required this.warModel});
+  final WarModel warModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => customPushNavigation(AppRouter.kHistoricalPeriodDetailsView,
-          arguments: historicalPeriodsModel.wars),
+      //  onTap: () => customPushNavigation(AppRouter.kHistoricalPeriodDetailsView),
       child: Card(
         color: AppColors.white,
         elevation: 5,
@@ -31,7 +24,7 @@ class HistoricalPeriodItem extends StatelessWidget {
                 width: 65,
                 height: 48,
                 child: Text(
-                  historicalPeriodsModel.name,
+                  warModel.name,
                   style: AppTextStyles.poppins500style16
                       .copyWith(color: AppColors.deepBrown),
                   textAlign: TextAlign.center,
@@ -42,9 +35,8 @@ class HistoricalPeriodItem extends StatelessWidget {
               SizedBox(
                 width: 24,
               ),
-              if (historicalPeriodsModel.image != null)
                 AppImageRenderer.network(
-                  historicalPeriodsModel.image!,
+                  warModel.image,
                   fit: BoxFit.contain,
                 )
             ],

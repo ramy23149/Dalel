@@ -1,4 +1,5 @@
-import 'historical_character_war_model.dart';
+import 'package:dalel_app/features/home/data/models/war_model/war_model.dart';
+
 
 class HistoricalCharacterModel {
 	String? id;
@@ -8,7 +9,7 @@ class HistoricalCharacterModel {
 	String birthYear;
 	String deathYear;
 	String fullDescription;
-	List<HistoricalCharacterWarModel>? wars;
+	List<WarModel>? wars;
 
 	HistoricalCharacterModel({
 		this.id, 
@@ -31,7 +32,7 @@ class HistoricalCharacterModel {
 			deathYear: json['deathYear'] as String,
 			fullDescription: json['description'] as String,
 			wars: (json['wars'] as List<dynamic>?)
-						?.map((e) => HistoricalCharacterWarModel.fromTo(e as Map<String, dynamic>))
+						?.map((e) => WarModel.fromJson(e as Map<String, dynamic>))
 						.toList(),
 		);
 	}
@@ -46,6 +47,6 @@ class HistoricalCharacterModel {
 				'birthYear': birthYear,
 				'deathYear': deathYear,
 				'fullDescription': fullDescription,
-				'wars': wars?.map((e) => e.toTo()).toList(),
+				'wars': wars?.map((e) => e.toJson()).toList(),
 			};
 }

@@ -1,4 +1,5 @@
 import 'package:dalel_app/core/services/service_locator.dart';
+import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:dalel_app/features/home/presentation/cubits/historical_characters_cubit/historical_characters_cubit.dart';
 import 'package:dalel_app/features/home/presentation/cubits/historical_periods_cubit/historical_periods_cubit.dart';
@@ -40,7 +41,7 @@ class HomeView extends StatelessWidget {
                 SizedBox(height: 32),
                 HistoricalPeriodsSection(),
                 SizedBox(height: 32),
-                HistoricalCharactersSection(),
+                HistoricalCharactersSection(headerText: AppStrings.historical_characters,),
                 SizedBox(height: 32),
                 AncientWarsSection(),
                 SizedBox(height: 32),

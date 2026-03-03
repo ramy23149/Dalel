@@ -3,6 +3,7 @@ import 'package:dalel_app/core/errors/failure.dart';
 import 'package:dalel_app/features/home/data/data_source/remote_data_source.dart';
 import 'package:dalel_app/features/home/data/models/historical_character_model/historical_character_model.dart';
 import 'package:dalel_app/features/home/data/models/historical_periods_model/historical_periods_model.dart';
+import 'package:dalel_app/features/home/data/models/war_model/war_model.dart';
 import 'package:dalel_app/features/home/repo/home_repo.dart';
 import 'package:dartz/dartz.dart';
 
@@ -43,4 +44,20 @@ class HomeRepoImpl implements HomeRepo {
       }
     }
   }
+  
+  @override
+  Future<Either<Failure, List<WarModel>>> getWars({required String docId, required String warsCollectoin}) async{
+    try {
+      List<WarModel> wars =await homeRemoteDataSource.getWars(docId: docId, warsCollectoin: warsCollectoin);
+      return Right(wars);
+    } catch (e) {
+      if (e is FirebaseException) {
+        return left(ServerFailure.fromFireStore(e));
+      } else {
+        return left(ServerFailure.unexpectedError(e));
+      }
+    }
+  }
+
+
 }

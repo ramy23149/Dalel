@@ -16,13 +16,16 @@ class HistoricalPeriodsModel {
     required this.wars,
   });
 
-  factory HistoricalPeriodsModel.fromQuerySnapshot(Map<String, dynamic> json,List<WarModel> wars) {
+  factory HistoricalPeriodsModel.fromQuerySnapshot(Map<String, dynamic> json) {
     return HistoricalPeriodsModel(
       id: json['id'] as String?,
       name: json['name'] as String,
       image: json['image'] as String?,
       description: json['description'] as String,
-      wars: wars,
+      wars: (json['wars'] as List<dynamic>?)
+            ?.map((e) => WarModel.fromJson(e as Map<String, dynamic>))
+            .toList() ??
+        [],
     );
   }
 

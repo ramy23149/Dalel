@@ -17,7 +17,7 @@ class HistoricalPeriodItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => customPushNavigation(AppRouter.kHistoricalPeriodDetailsView,
-          arguments: historicalPeriodsModel.wars),
+          arguments: historicalPeriodsModel),
       child: Card(
         color: AppColors.white,
         elevation: 5,

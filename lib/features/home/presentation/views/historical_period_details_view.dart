@@ -1,8 +1,10 @@
 import 'package:dalel_app/core/services/service_locator.dart';
+import 'package:dalel_app/core/utils/app_constants.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
-import 'package:dalel_app/features/home/data/models/war_model/war_model.dart';
+import 'package:dalel_app/features/home/data/models/historical_periods_model/historical_periods_model.dart';
 import 'package:dalel_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:dalel_app/features/home/presentation/cubits/historical_characters_cubit/historical_characters_cubit.dart';
+import 'package:dalel_app/features/home/presentation/cubits/wars_cubit/wars_cubit.dart';
 import 'package:dalel_app/features/home/presentation/widgets/custom_home_view_appBar.dart';
 import 'package:dalel_app/features/home/presentation/widgets/historical_characters_section.dart';
 import 'package:dalel_app/features/home/presentation/widgets/historical_period_details_sectoin.dart';
@@ -11,14 +13,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HistoricalPeriodDetailsView extends StatelessWidget {
-  const HistoricalPeriodDetailsView({super.key, required this.warsModels});
-  final List<WarModel> warsModels;
+  const HistoricalPeriodDetailsView({super.key, required this.historicalPeriodsModel});
+  final HistoricalPeriodsModel historicalPeriodsModel;
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HistoricalCharactersCubit(
-        homeRepo: getIt.get<HomeRepoImpl>(),
-      )..getHistoricalCharacters(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => HistoricalCharactersCubit(
+            homeRepo: getIt.get<HomeRepoImpl>(),
+          )..getHistoricalCharacters(),
+        ),
+        BlocProvider(
+          create: (context) => WarsCubit(
+            homeRepo: getIt.get<HomeRepoImpl>(),
+          )..getWars(
+              docId: "ancient_egypt",
+              warsCollectoin: khistoricalPeriodsCollection),
+        ),
+      ],
       child: Scaffold(
           body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -39,7 +52,7 @@ class HistoricalPeriodDetailsView extends StatelessWidget {
                   SizedBox(
                     height: 22,
                   ),
-                  WarsDetailsSection(warsModels: warsModels,),
+                  WarsDetailsSection(),
                   SizedBox(
                     height: 24,
                   ),

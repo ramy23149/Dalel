@@ -4,7 +4,7 @@ import 'package:dalel_app/features/auth/presentation/cubits/signUp_cubit/signUp_
 import 'package:dalel_app/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/log_in_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/sign_up_view.dart';
-import 'package:dalel_app/features/home/data/models/war_model/war_model.dart';
+import 'package:dalel_app/features/home/data/models/historical_periods_model/historical_periods_model.dart';
 import 'package:dalel_app/features/home/presentation/cubits/nav_bar_cubit/nav_bar_cubit.dart';
 import 'package:dalel_app/features/home/presentation/views/historical_period_details_view.dart';
 import 'package:dalel_app/features/home/presentation/views/home_nav_bar_view.dart';
@@ -78,7 +78,7 @@ abstract class AppRouter {
       GoRoute(
         path: kHistoricalPeriodDetailsView,
         builder: (context, state) => HistoricalPeriodDetailsView(
-          warsModels: state.extra as List<WarModel>,
+          historicalPeriodsModel: state.extra as HistoricalPeriodsModel,
         ),
       ),
     ],

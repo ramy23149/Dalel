@@ -7,6 +7,8 @@ import 'package:dalel_app/features/home/data/models/war_model/war_model.dart';
 abstract class HomeRemoteDataSource {
   Future<List<HistoricalPeriodsModel>> getHistoricalPeriods();
   Future<List<HistoricalCharacterModel>> getHistoricalCharacters();
+  Future<List<WarModel>> getWars(
+      {required String docId, required String warsCollectoin});
 }
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
@@ -28,20 +30,28 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
         .collection(khistoricalPeriodsCollection)
         .get();
 
-    List<Future<HistoricalPeriodsModel>> historicalPeriods = snapshot.docs.map((doc)async {
-      List<WarModel> wars =await getWars(doc.id);
-      return HistoricalPeriodsModel.fromQuerySnapshot(doc.data(),wars);
+    List<Future<HistoricalPeriodsModel>> historicalPeriods =
+        snapshot.docs.map((doc) async {
+      return HistoricalPeriodsModel.fromQuerySnapshot(
+        doc.data(),
+      );
     }).toList();
     return await Future.wait(historicalPeriods);
   }
-  Future<List<WarModel>> getWars(String id)async{
+
+  @override
+  Future<List<WarModel>> getWars(
+      {required String docId, required String warsCollectoin}) async {
     var snapshot = await FirebaseFirestore.instance
-        .collection(khistoricalCharactersCollection)
-        .doc(id)
-        .collection(kWars)
+        .collection(warsCollectoin)
+        .doc(docId)
+        .collection(kWarsCollection)
         .get();
+
     List<WarModel> wars = snapshot.docs.map((doc) {
-      return WarModel.fromJson(doc.data());
+      return WarModel.fromJson(
+        doc.data(),
+      );
     }).toList();
     return wars;
   }

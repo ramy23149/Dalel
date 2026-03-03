@@ -81,5 +81,7 @@ abstract class AppStrings {
   static const historical_characters = "Historical Characters";
   static const ancient_wars = "Ancient Wars";
   static const about = "About";
+  static const read_more = "Read More?";            
+  static const show_less = "Show Less";            
 
 }

@@ -28,7 +28,7 @@ class HistoricalPeriodDetailsView extends StatelessWidget {
           create: (context) => WarsCubit(
             homeRepo: getIt.get<HomeRepoImpl>(),
           )..getWars(
-              docId: "ancient_egypt",
+              docId: historicalPeriodsModel.id,
               warsCollectoin: khistoricalPeriodsCollection),
         ),
       ],
@@ -48,7 +48,7 @@ class HistoricalPeriodDetailsView extends StatelessWidget {
                   SizedBox(
                     height: 7,
                   ),
-                  HistoricalPeriodDetailsSectoin(),
+                  HistoricalPeriodDetailsSectoin(historicalPeriodsModel: historicalPeriodsModel,),
                   SizedBox(
                     height: 22,
                   ),

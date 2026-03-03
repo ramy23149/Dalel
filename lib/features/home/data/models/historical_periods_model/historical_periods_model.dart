@@ -2,14 +2,14 @@ import 'package:dalel_app/features/home/data/models/war_model/war_model.dart';
 
 
 class HistoricalPeriodsModel {
-  String? id;
+  String id;
   String name;
   String? image;
   String description;
   List<WarModel> wars;
 
   HistoricalPeriodsModel({
-    this.id,
+  required  this.id,
     required this.name,
     this.image,
     required this.description,
@@ -18,7 +18,7 @@ class HistoricalPeriodsModel {
 
   factory HistoricalPeriodsModel.fromQuerySnapshot(Map<String, dynamic> json) {
     return HistoricalPeriodsModel(
-      id: json['id'] as String?,
+      id: json['id'] as String,
       name: json['name'] as String,
       image: json['image'] as String?,
       description: json['description'] as String,

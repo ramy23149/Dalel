@@ -1,21 +1,25 @@
 import 'package:dalel_app/core/utils/app_assets.dart';
+import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:dalel_app/core/widgets/app_image_renderer.dart';
 import 'package:dalel_app/core/widgets/custom_header_text.dart';
+import 'package:dalel_app/features/home/data/models/historical_periods_model/historical_periods_model.dart';
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 
 class HistoricalPeriodDetailsSectoin extends StatelessWidget {
-  const HistoricalPeriodDetailsSectoin({super.key});
-
+  const HistoricalPeriodDetailsSectoin(
+      {super.key, required this.historicalPeriodsModel});
+  final HistoricalPeriodsModel historicalPeriodsModel;
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return  Column(
       children: [
         Row(
           children: [
             CustomHeaderText(
-              text: "${AppStrings.about} Ancient Egypt",
+              text: "${AppStrings.about} ${historicalPeriodsModel.name}",
             ),
             SizedBox(
               width: 8,
@@ -24,10 +28,10 @@ class HistoricalPeriodDetailsSectoin extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: 14,
+          height: 47,
         ),
         Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               child: Stack(
@@ -41,19 +45,24 @@ class HistoricalPeriodDetailsSectoin extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  Text(
-                    "Ancient Egypt was a civilization in Northeast Africa situated in the Nile Valley...Ancient Egypt was a civilization in Northeast Africa situated in the Nile Valley...Ancient Egypt was a civilization in Northeast Africa situated in the Nile Valley...Ancient Egypt was a civilization in Northeast Africa situated in the Nile Valley...",
+                  ReadMoreText(
+                    historicalPeriodsModel.description,
                     style: AppTextStyles.poppins500style14,
-                    maxLines: 10,
-                    overflow: TextOverflow.ellipsis,
+                    trimMode: TrimMode.Line,
+                    trimLines: 10,
+                    colorClickableText: AppColors.offGrey,
+                    trimCollapsedText: AppStrings.read_more,
+                    trimExpandedText: AppStrings.show_less,
+                    moreStyle:
+                        AppTextStyles.poppins500style14
                   ),
                 ],
               ),
             ),
             const SizedBox(width: 16),
             Expanded(
-              child: AppImageRenderer.assets(
-                Assets.imagesFrame,
+              child: AppImageRenderer.network(
+                historicalPeriodsModel.image!,
                 fit: BoxFit.cover,
               ),
             ),
@@ -63,3 +72,8 @@ class HistoricalPeriodDetailsSectoin extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

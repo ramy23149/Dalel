@@ -2,7 +2,7 @@ import 'package:dalel_app/features/home/data/models/war_model/war_model.dart';
 
 
 class HistoricalCharacterModel {
-	String? id;
+	String id;
 	String name;
 	String? image;
 	String? homeImage;
@@ -12,7 +12,7 @@ class HistoricalCharacterModel {
 	List<WarModel>? wars;
 
 	HistoricalCharacterModel({
-		this.id, 
+		required this.id, 
 	required	this.name, 
 		this.image, 
 		this.homeImage, 
@@ -24,7 +24,7 @@ class HistoricalCharacterModel {
 
 	factory HistoricalCharacterModel.fromQuerySnapshot(Map<String, dynamic> json) {
 		return HistoricalCharacterModel(
-			id: json['id'] as String?,
+			id: json['id'] as String,
 			name: json['name'] as String,
 			image: json['image'] as String?,
 			homeImage: json['homeImage'] as String?,

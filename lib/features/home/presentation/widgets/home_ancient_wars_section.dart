@@ -6,8 +6,8 @@ import 'package:dalel_app/core/widgets/custom_header_text.dart';
 import 'package:dalel_app/core/widgets/custom_smooth_page_indicator.dart';
 import 'package:flutter/material.dart';
 
-class AncientWarsSection extends StatelessWidget {
-  const AncientWarsSection({super.key});
+class HomeAncientWarsSection extends StatelessWidget {
+  const HomeAncientWarsSection({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,5 @@
+import 'package:dalel_app/core/functions/custom_navigation.dart';
+import 'package:dalel_app/core/routes/app_router.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:dalel_app/core/widgets/custom_header_text.dart';
 import 'package:dalel_app/core/widgets/custom_loading_indecator_list.dart';
@@ -37,6 +39,9 @@ class HistoricalCharactersSection extends StatelessWidget {
                   itemBuilder: (context, index) => CustomCategoryListViewItem(
                     name: state.historicalCharactersModels[index].name,
                     image: state.historicalCharactersModels[index].image!,
+                    onTap: () => customPushNavigation(
+                        AppRouter.kHistoricalCharacterDetailsView,
+                        arguments: state.historicalCharactersModels[index]),
                   ),
                   itemCount: state.historicalCharactersModels.length,
                   scrollDirection: Axis.horizontal,

@@ -3,7 +3,7 @@ import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:dalel_app/features/home/presentation/cubits/historical_characters_cubit/historical_characters_cubit.dart';
 import 'package:dalel_app/features/home/presentation/cubits/historical_periods_cubit/historical_periods_cubit.dart';
-import 'package:dalel_app/features/home/presentation/widgets/ancient_wars_section.dart';
+import 'package:dalel_app/features/home/presentation/widgets/home_ancient_wars_section.dart';
 import 'package:dalel_app/features/home/presentation/widgets/custom_home_view_appBar.dart';
 import 'package:dalel_app/features/home/presentation/widgets/historical_characters_section.dart';
 import 'package:dalel_app/features/home/presentation/widgets/historical_periods_section.dart';
@@ -43,7 +43,7 @@ class HomeView extends StatelessWidget {
                 SizedBox(height: 32),
                 HistoricalCharactersSection(headerText: AppStrings.historical_characters,),
                 SizedBox(height: 32),
-                AncientWarsSection(),
+                HomeAncientWarsSection(),
                 SizedBox(height: 32),
               ])),
             ],

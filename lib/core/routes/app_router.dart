@@ -4,8 +4,10 @@ import 'package:dalel_app/features/auth/presentation/cubits/signUp_cubit/signUp_
 import 'package:dalel_app/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/log_in_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/sign_up_view.dart';
+import 'package:dalel_app/features/home/data/models/historical_character_model/historical_character_model.dart';
 import 'package:dalel_app/features/home/data/models/historical_periods_model/historical_periods_model.dart';
 import 'package:dalel_app/features/home/presentation/cubits/nav_bar_cubit/nav_bar_cubit.dart';
+import 'package:dalel_app/features/home/presentation/views/historical_character_details_view.dart';
 import 'package:dalel_app/features/home/presentation/views/historical_period_details_view.dart';
 import 'package:dalel_app/features/home/presentation/views/home_nav_bar_view.dart';
 import 'package:dalel_app/features/home/presentation/views/home_view.dart';
@@ -24,8 +26,10 @@ abstract class AppRouter {
   static const String kHomeView = '/HomeVeiw';
   static const String kForgotPasswordView = '/ForgotPasswordView';
   static const String kHomeNavBarView = '/HomeNavBarView';
-  static const String kHistoricalPeriodDetailsView = '/HistoricalPeriodDetailsView';
-
+  static const String kHistoricalPeriodDetailsView =
+      '/HistoricalPeriodDetailsView';
+  static const String kHistoricalCharacterDetailsView =
+      '/HistoricalCharacterDetailsView';
 
   static GoRouter router = GoRouter(
     routes: <RouteBase>[
@@ -79,6 +83,12 @@ abstract class AppRouter {
         path: kHistoricalPeriodDetailsView,
         builder: (context, state) => HistoricalPeriodDetailsView(
           historicalPeriodsModel: state.extra as HistoricalPeriodsModel,
+        ),
+      ),
+      GoRoute(
+        path: kHistoricalCharacterDetailsView,
+        builder: (context, state) => HistoricalCharacterDetailsView(
+          historicalCharacterModel: state.extra as HistoricalCharacterModel,
         ),
       ),
     ],

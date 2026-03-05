@@ -22,6 +22,14 @@ class Assets {
   /// assets/images/ancient_war.jpg
   static const String imagesAncientWar = "assets/images/ancient_war.jpg";
 
+  /// Assets for imagesCharacterEagle
+  /// assets/images/character_eagle.svg
+  static const String imagesCharacterEagle = "assets/images/character_eagle.svg";
+
+  /// Assets for imagesDetailsBigCircle
+  /// assets/images/details_big_circle.svg
+  static const String imagesDetailsBigCircle = "assets/images/details_big_circle.svg";
+
   /// Assets for imagesDetailsMace
   /// assets/images/details_mace.svg
   static const String imagesDetailsMace = "assets/images/details_mace.svg";
@@ -33,6 +41,10 @@ class Assets {
   /// Assets for imagesDetailsPrimades
   /// assets/images/details_primades.svg
   static const String imagesDetailsPrimades = "assets/images/details_primades.svg";
+
+  /// Assets for imagesDetailsSmallCircle
+  /// assets/images/details_small_circle.svg
+  static const String imagesDetailsSmallCircle = "assets/images/details_small_circle.svg";
 
   /// Assets for imagesForgotPassword
   /// assets/images/forgot_password.png
@@ -89,5 +101,9 @@ class Assets {
   /// Assets for imagesPeramides
   /// assets/images/peramides.svg
   static const String imagesPeramides = "assets/images/peramides.svg";
+
+  /// Assets for imagesSalahElDinTestImage
+  /// assets/images/salah_el_din_test_image.png
+  static const String imagesSalahElDinTestImage = "assets/images/salah_el_din_test_image.png";
 }
 

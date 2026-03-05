@@ -1,12 +1,10 @@
 import 'package:dalel_app/core/utils/app_assets.dart';
-import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
-import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:dalel_app/core/widgets/app_image_renderer.dart';
 import 'package:dalel_app/core/widgets/custom_header_text.dart';
 import 'package:dalel_app/features/home/data/models/historical_periods_model/historical_periods_model.dart';
+import 'package:dalel_app/features/home/presentation/widgets/custom_read_more_text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:readmore/readmore.dart';
 
 class HistoricalPeriodDetailsSectoin extends StatelessWidget {
   const HistoricalPeriodDetailsSectoin(
@@ -14,7 +12,7 @@ class HistoricalPeriodDetailsSectoin extends StatelessWidget {
   final HistoricalPeriodsModel historicalPeriodsModel;
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       children: [
         Row(
           children: [
@@ -39,23 +37,14 @@ class HistoricalPeriodDetailsSectoin extends StatelessWidget {
                 children: [
                   Positioned(
                     top: -25,
-                    left: -7,
+                    left: -10,
                     child: AppImageRenderer.assets(
                       Assets.imagesDetailsPrimades,
                       fit: BoxFit.cover,
                     ),
                   ),
-                  ReadMoreText(
-                    historicalPeriodsModel.description,
-                    style: AppTextStyles.poppins500style14,
-                    trimMode: TrimMode.Line,
-                    trimLines: 10,
-                    colorClickableText: AppColors.offGrey,
-                    trimCollapsedText: AppStrings.read_more,
-                    trimExpandedText: AppStrings.show_less,
-                    moreStyle:
-                        AppTextStyles.poppins500style14
-                  ),
+                  CustomReadMoreTextWidget(
+                      text: historicalPeriodsModel.description),
                 ],
               ),
             ),
@@ -72,8 +61,3 @@ class HistoricalPeriodDetailsSectoin extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

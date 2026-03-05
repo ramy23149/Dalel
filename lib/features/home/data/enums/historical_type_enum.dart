@@ -1,0 +1,4 @@
+enum HistoricalType {
+  historicalPeriod,
+  historicalCharacter,
+}

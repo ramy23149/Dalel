@@ -1,3 +1,5 @@
+import 'package:dalel_app/features/search/presentation/widgets/custom_search_appbar_section.dart';
+import 'package:dalel_app/features/search/presentation/widgets/recent_search_section.dart';
 import 'package:flutter/material.dart';
 
 class SearchView extends StatelessWidget {
@@ -5,13 +7,27 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          'SearchView',
-          style: TextStyle(fontSize: 30, color: Colors.black),
-        ),
-      ),
+    return SafeArea(
+      child: Scaffold(
+          body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                SizedBox(
+                  height: 36,
+                ),
+                CustomSearchAppBarSection(),
+                SizedBox(
+                  height: 16,
+                ),
+                RecentSearchSectoin(),
+              ],
+            ),
+          ),
+        ],
+      )),
     );
   }
 }

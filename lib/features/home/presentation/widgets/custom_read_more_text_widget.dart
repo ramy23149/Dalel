@@ -14,13 +14,21 @@ class CustomReadMoreTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ReadMoreText(text,
-        style: AppTextStyles.poppins500style14,
-        trimMode: TrimMode.Line,
-        trimLines: 10,
-        colorClickableText: AppColors.offGrey,
-        trimCollapsedText: AppStrings.read_more,
-        trimExpandedText: AppStrings.show_less,
-        moreStyle: AppTextStyles.poppins500style14);
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.4,
+      child: ListView(
+        padding: const EdgeInsets.all(0),
+        children: [
+          ReadMoreText(text,
+              style: AppTextStyles.poppins500style14,
+              trimMode: TrimMode.Line,
+              trimLines: 10,
+              colorClickableText: AppColors.offGrey,
+              trimCollapsedText: AppStrings.read_more,
+              trimExpandedText: AppStrings.show_less,
+              moreStyle: AppTextStyles.poppins500style14),
+        ],
+      ),
+    );
   }
 }

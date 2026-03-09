@@ -6,8 +6,8 @@ import 'package:dalel_app/features/home/data/models/historical_character_model/h
 import 'package:dalel_app/features/home/presentation/widgets/custom_read_more_text_widget.dart';
 import 'package:flutter/material.dart';
 
-class CustomCharacterDetailsSection extends StatelessWidget {
-  const CustomCharacterDetailsSection({
+class HistoricalCharacterDetailsSection extends StatelessWidget {
+  const HistoricalCharacterDetailsSection({
     super.key, required this.historicalCharacterModel,
   });
   final HistoricalCharacterModel historicalCharacterModel;
@@ -21,7 +21,7 @@ class CustomCharacterDetailsSection extends StatelessWidget {
           height: 43,
         ),
         SizedBox(
-          height: 280,
+          height: MediaQuery.of(context).size.height * 0.4,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

@@ -6,7 +6,7 @@ import 'package:dalel_app/features/home/data/models/historical_character_model/h
 import 'package:dalel_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:dalel_app/features/home/presentation/cubits/historical_characters_cubit/historical_characters_cubit.dart';
 import 'package:dalel_app/features/home/presentation/cubits/wars_cubit/wars_cubit.dart';
-import 'package:dalel_app/features/home/presentation/widgets/custom_character_details_section.dart';
+import 'package:dalel_app/features/home/presentation/widgets/historical_character_details_section.dart';
 import 'package:dalel_app/features/home/presentation/widgets/custom_home_view_appBar.dart';
 import 'package:dalel_app/features/home/presentation/widgets/historical_characters_section.dart';
 import 'package:dalel_app/features/home/presentation/widgets/wars_details_sectoin.dart';
@@ -50,7 +50,7 @@ class HistoricalCharacterDetailsView extends StatelessWidget {
                     SizedBox(
                       height: 24,
                     ),
-                    CustomCharacterDetailsSection(
+                    HistoricalCharacterDetailsSection(
                       historicalCharacterModel: historicalCharacterModel,
                     ),
                     WarsDetailsSection(

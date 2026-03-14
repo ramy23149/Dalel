@@ -35,6 +35,7 @@ abstract class AppStrings {
   static const String Recommendations = "Recommendations";
   static const String Recent = "Recent";
   static const String Profile = "Profile";
+  static const String Account = "Account";
   static const String Notification = "Notification";
   static const String Edit_Profile = "Edit Profile";
   static const String General = "General";

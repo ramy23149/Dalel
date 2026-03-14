@@ -75,6 +75,12 @@ abstract class AppTextStyles {
     color: AppColors.black,
     fontFamily: kPoppinsFontFamily,
   );
+  static final poppins700style20 = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: AppColors.deepBrown,
+    fontFamily: kPoppinsFontFamily,
+  );
   static final poppins500style18 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,
@@ -104,5 +110,17 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w700,
     color: AppColors.white,
     fontFamily: kSairaFontFamily,
+  );
+  static final heebo400style16 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.deepGrey,
+    fontFamily: kHeeboFontFamily,
+  );
+  static final heebo500style18 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: AppColors.deepBrown,
+    fontFamily: kHeeboFontFamily,
   );
 }

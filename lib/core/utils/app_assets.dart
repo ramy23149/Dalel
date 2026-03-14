@@ -46,6 +46,10 @@ class Assets {
   /// assets/images/details_small_circle.svg
   static const String imagesDetailsSmallCircle = "assets/images/details_small_circle.svg";
 
+  /// Assets for imagesEdit
+  /// assets/images/Edit.svg
+  static const String imagesEdit = "assets/images/Edit.svg";
+
   /// Assets for imagesForgotPassword
   /// assets/images/forgot_password.png
   static const String imagesForgotPassword = "assets/images/forgot_password.png";

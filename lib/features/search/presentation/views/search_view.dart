@@ -8,26 +8,30 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-          body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                SizedBox(
-                  height: 36,
-                ),
-                CustomSearchAppBarSection(),
-                SizedBox(
-                  height: 16,
-                ),
-                RecentSearchSectoin(),
-              ],
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        onVerticalDragStart: (details) => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+            body: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  SizedBox(
+                    height: 36,
+                  ),
+                  CustomSearchAppBarSection(),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  RecentSearchSectoin(),
+                ],
+              ),
             ),
-          ),
-        ],
-      )),
+          ],
+        )),
+      ),
     );
   }
 }

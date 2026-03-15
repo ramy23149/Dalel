@@ -1,11 +1,12 @@
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
+import 'package:dalel_app/features/profile/presentation/cubits/log_out_cubit/log_out_cubit.dart';
 import 'package:dalel_app/features/profile/presentation/widgets/custom_profile_item.dart';
 import 'package:flutter/material.dart';
 
 class GeneralSettingsSection extends StatelessWidget {
-  const GeneralSettingsSection({super.key});
-
+  const GeneralSettingsSection({super.key, required this.logOutCubit});
+  final LogOutCubit logOutCubit;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,6 +37,7 @@ class GeneralSettingsSection extends StatelessWidget {
         CustomProfileItem(
           title: AppStrings.Log_Out,
           icon: Icons.logout,
+          onTap: ()=>logOutCubit.logOut(),
         ),
       ],
     );

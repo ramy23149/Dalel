@@ -1,6 +1,6 @@
 import 'package:dalel_app/core/utils/app_assets.dart';
 import 'package:dalel_app/core/widgets/app_image_renderer.dart';
-import 'package:dalel_app/features/cart/presentation/views/cart_view.dart';
+import 'package:dalel_app/features/bazar/presentation/views/bazar_view.dart';
 import 'package:dalel_app/features/home/presentation/views/home_view.dart';
 import 'package:dalel_app/features/profile/presentation/views/profile_view.dart';
 import 'package:dalel_app/features/search/presentation/views/search_view.dart';
@@ -26,7 +26,7 @@ class NavBarCubit extends Cubit<NavBarState> {
   List<Widget> buildScreens() {
     return [
       HomeView(),
-      CartView(),
+      BazarView(),
       SearchView(),
       ProfileView(),
     ];

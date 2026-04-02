@@ -52,7 +52,7 @@ class BazarView extends StatelessWidget {
                       height: 16,
                     ),
                     CustomCategoryListViewItem(
-                      name: "Ramy",
+                      name: "Ramy Hany",
                       image: "https://npnbbcdhezsbfkvqgitz.supabase.co/storage/v1/object/public/historical_characters/alexander%20the%20great%20home.jpg",
                     )
                   ],  

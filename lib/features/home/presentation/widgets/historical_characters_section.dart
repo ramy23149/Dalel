@@ -33,7 +33,7 @@ class HistoricalCharactersSection extends StatelessWidget {
               );
             } else if (state is HistoricalCharactersLoaded) {
               return SizedBox(
-                height: 185,
+                height: 170,
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) => CustomCategoryListViewItem(

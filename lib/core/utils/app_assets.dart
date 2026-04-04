@@ -109,5 +109,9 @@ class Assets {
   /// Assets for imagesSalahElDinTestImage
   /// assets/images/salah_el_din_test_image.png
   static const String imagesSalahElDinTestImage = "assets/images/salah_el_din_test_image.png";
+
+  /// Assets for imagesShoppingCartIcon
+  /// assets/images/shopping_cart_icon.svg
+  static const String imagesShoppingCartIcon = "assets/images/shopping_cart_icon.svg";
 }
 

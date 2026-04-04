@@ -5,5 +5,6 @@ const String kHeeboFontFamily = "Heebo";
 const String kUsersCollection = "users";
 const String khistoricalPeriodsCollection = "historical_periods";
 const String khistoricalCharactersCollection = "historical_characters";
+const String khistoricalSouvenirsCollection = "historical souvenirs";
 const String kWarsCollection = "wars";
 

@@ -2,12 +2,14 @@ import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/features/bazar/data/repos/bazar_repo_impl.dart';
 import 'package:dalel_app/features/bazar/presentation/cubits/bazar_books_cubit/bazar_books_cubit.dart';
 import 'package:dalel_app/features/bazar/presentation/cubits/bazar_souvenirs_cubit/bazar_souvenirs_cubit.dart';
+import 'package:dalel_app/features/bazar/presentation/cubits/book_preveiw_cubit/book_preview_cubit.dart';
 import 'package:dalel_app/features/bazar/presentation/widgets/bazar_view_body.dart';
 import 'package:dalel_app/features/bazar/presentation/widgets/custom_bazar_floating_action_button.dart';
 import 'package:dalel_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:dalel_app/features/home/presentation/cubits/historical_periods_cubit/historical_periods_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class BazarView extends StatelessWidget {
   const BazarView({super.key});
@@ -31,15 +33,25 @@ class BazarView extends StatelessWidget {
               BazarSouvenirsCubit(bazarRepo: getIt.get<BazarRepoImpl>())
                 ..getBazarSouvenirs(),
         ),
-      ],
-      child: SafeArea(
-        child: Scaffold(
-          floatingActionButton: CustomBazarFloatingActionButton(),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: BazarViewBody(),
-          ),
+        BlocProvider(
+          create: (context) => BookPreviewCubit(),
         ),
+      ],
+      child: BlocBuilder<BookPreviewCubit, BookPreviewState>(
+        builder: (context, state) {
+          return ModalProgressHUD(
+              inAsyncCall: state is BookPreviewLoading,
+              child: SafeArea(
+                child: Scaffold(
+                  floatingActionButton: CustomBazarFloatingActionButton(),
+                  body: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: BazarViewBody(),
+                  ),
+                ),
+              ),
+            );
+        },
       ),
     );
   }

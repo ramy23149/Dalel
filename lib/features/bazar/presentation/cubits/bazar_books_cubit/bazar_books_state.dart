@@ -17,3 +17,4 @@ final class BazarBooksError extends BazarBooksState {
 
   BazarBooksError(this.errMessage);
 }
+

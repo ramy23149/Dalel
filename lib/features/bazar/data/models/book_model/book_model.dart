@@ -24,7 +24,7 @@ class BookModel extends BookEntitie {
 		this.saleInfo, 
 		this.accessInfo, 
 		this.searchInfo, 
-	}) :super(bookId: id!,bookName: volumeInfo!.title!,bookImage: volumeInfo.imageLinks!.thumbnail);
+	}) :super(bookId: id!,bookName: volumeInfo!.title!,bookImage: volumeInfo.imageLinks!.thumbnail,previewLink: volumeInfo.previewLink);
 
 	factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
 				kind: json['kind'] as String?,

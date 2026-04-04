@@ -3,7 +3,7 @@ import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:dalel_app/core/widgets/app_image_renderer.dart';
 import 'package:dalel_app/core/widgets/custom_header_text.dart';
-import 'package:dalel_app/core/widgets/custom_loading_indecator_list.dart';
+import 'package:dalel_app/core/widgets/custom_loading_indecator_horizontal_list.dart';
 import 'package:dalel_app/features/home/data/enums/historical_type_enum.dart';
 import 'package:dalel_app/features/home/presentation/cubits/wars_cubit/wars_cubit.dart';
 import 'package:dalel_app/features/home/presentation/widgets/historical_war_item.dart';
@@ -60,7 +60,7 @@ class WarsDetailsSection extends StatelessWidget {
                     ),
                   ),
                 if (state is WarsLoading)
-                  const CustomLoadingIndecatorList(
+                  const CustomLoadingIndecatorHorizontalList(
                     wideContainer: true,
                   )
               ],

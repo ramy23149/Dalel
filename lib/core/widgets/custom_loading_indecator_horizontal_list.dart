@@ -1,8 +1,8 @@
 import 'package:dalel_app/core/widgets/custom_loading_item.dart';
 import 'package:flutter/material.dart';
 
-class CustomLoadingIndecatorList extends StatelessWidget {
-  const CustomLoadingIndecatorList({super.key,required  this.wideContainer});
+class CustomLoadingIndecatorHorizontalList extends StatelessWidget {
+  const CustomLoadingIndecatorHorizontalList({super.key,required  this.wideContainer});
   final bool wideContainer;
   @override
   Widget build(BuildContext context) {

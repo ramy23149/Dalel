@@ -1,6 +1,10 @@
 import 'package:dalel_app/core/database/cache/cache_helper.dart';
+import 'package:dalel_app/core/utils/api_serviece.dart';
+import 'package:dalel_app/features/bazar/data/data_sources/bazar_books_remote_data_source.dart';
+import 'package:dalel_app/features/bazar/data/repos/bazar_repo_impl.dart';
 import 'package:dalel_app/features/home/data/data_source/remote_data_source.dart';
 import 'package:dalel_app/features/home/data/repos/home_repo_impl.dart';
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -9,5 +13,18 @@ void setupServiceLocator() {
   getIt.registerSingleton<SharedPrefHelper>(SharedPrefHelper());
   getIt.registerSingleton<HomeRemoteDataSource>(HomeRemoteDataSourceImpl());
   getIt.registerSingleton<HomeRepoImpl>(
-      HomeRepoImpl(homeRemoteDataSource: getIt.get<HomeRemoteDataSource>()));
+    HomeRepoImpl(homeRemoteDataSource: getIt.get<HomeRemoteDataSource>()),
+  );
+
+  getIt.registerSingleton<ApiServiece>(ApiServiece(Dio()));
+
+  getIt.registerSingleton<BazarBooksRemoteDataSourceImpl>(
+    BazarBooksRemoteDataSourceImpl(getIt.get<ApiServiece>()),
+  );
+
+  getIt.registerSingleton<BazarRepoImpl>(
+    BazarRepoImpl(
+      bazarBooksRemoteDataSource: getIt.get<BazarBooksRemoteDataSourceImpl>(),
+    ),
+  );
 }

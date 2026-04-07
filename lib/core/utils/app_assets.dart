@@ -58,6 +58,18 @@ class Assets {
   /// assets/images/Frame.png
   static const String imagesFrame = "assets/images/Frame.png";
 
+  /// Assets for imagesHomePageView1
+  /// assets/images/home_pageView_1.png
+  static const String imagesHomePageView1 = "assets/images/home_pageView_1.png";
+
+  /// Assets for imagesHomePageView3
+  /// assets/images/home_pageView_3.png
+  static const String imagesHomePageView3 = "assets/images/home_pageView_3.png";
+
+  /// Assets for imagesHowePageView2
+  /// assets/images/howe_pageView_2.png
+  static const String imagesHomePageView2 = "assets/images/howe_pageView_2.png";
+
   /// Assets for imagesInaciteveSearch
   /// assets/images/inaciteve_Search.svg
   static const String imagesInaciteveSearch = "assets/images/inaciteve_Search.svg";
@@ -113,5 +125,9 @@ class Assets {
   /// Assets for imagesShoppingCartIcon
   /// assets/images/shopping_cart_icon.svg
   static const String imagesShoppingCartIcon = "assets/images/shopping_cart_icon.svg";
+
+  /// Assets for imagesTestPersonImage
+  /// assets/images/test_person_image.png
+  static const String imagesTestPersonImage = "assets/images/test_person_image.png";
 }
 

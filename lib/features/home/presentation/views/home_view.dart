@@ -3,6 +3,7 @@ import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:dalel_app/features/home/presentation/cubits/historical_characters_cubit/historical_characters_cubit.dart';
 import 'package:dalel_app/features/home/presentation/cubits/historical_periods_cubit/historical_periods_cubit.dart';
+import 'package:dalel_app/features/home/presentation/cubits/home_cubit/home_cubit.dart';
 import 'package:dalel_app/features/home/presentation/widgets/home_ancient_wars_section.dart';
 import 'package:dalel_app/features/home/presentation/widgets/custom_home_view_appBar.dart';
 import 'package:dalel_app/features/home/presentation/widgets/historical_characters_section.dart';
@@ -27,6 +28,8 @@ class HomeView extends StatelessWidget {
               HistoricalCharactersCubit(homeRepo: getIt.get<HomeRepoImpl>())
                 ..getHistoricalCharacters(),
         ),
+        BlocProvider(
+          create: (context) => HomeCubit())
       ],
       child: Scaffold(
         body: Padding(

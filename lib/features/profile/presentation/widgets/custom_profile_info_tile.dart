@@ -11,12 +11,12 @@ class CustomProfileInfoTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        "Ramy Hany Ezzat",
+        "Youssef Ghunim",
         style: AppTextStyles.heebo500style18
             .copyWith(color: AppColors.deepBrown),
       ),
       subtitle: Text(
-        "ramyelshahidy@gmail.com",
+        "youssefghunim@gmail.com",
         style:
             AppTextStyles.poppins400style16.copyWith(color: AppColors.offGrey),
       ),
@@ -32,13 +32,10 @@ class CustomProfileInfoTile extends StatelessWidget {
             blurRadius: 10,
           )
         ]),
-        child: CircleAvatar(
-          radius: 32,
-          backgroundColor: Colors.transparent,
-          child: ClipOval(
-            child: AppImageRenderer.assets(Assets.imagesAncientWar,
-                height: 64, width: 64, fit: BoxFit.fill),
-          ),
+        child: ClipOval(
+          clipBehavior: Clip.none,
+          child: AppImageRenderer.assets(Assets.imagesTestPersonImage,
+              height: 64, width: 64, fit: BoxFit.cover),
         ),
       ),
     );

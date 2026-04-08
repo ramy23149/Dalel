@@ -11,6 +11,6 @@ void customGoNavigation(String routePath) {
   AppRouter.router.go(routePath);
 }
 
-void customReplaceNavigation(String routePath) {
-  AppRouter.router.replace(routePath);
+void customReplaceNavigation(String routePath, {Object? arguments}) {
+  AppRouter.router.replace(routePath,extra: arguments);
 }

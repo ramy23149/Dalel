@@ -9,7 +9,7 @@ import 'package:dalel_app/features/home/presentation/cubits/wars_cubit/wars_cubi
 import 'package:dalel_app/features/home/presentation/widgets/historical_character_details_section.dart';
 import 'package:dalel_app/features/home/presentation/widgets/custom_home_view_appBar.dart';
 import 'package:dalel_app/features/home/presentation/widgets/historical_characters_section.dart';
-import 'package:dalel_app/features/home/presentation/widgets/wars_details_sectoin.dart';
+import 'package:dalel_app/features/home/presentation/widgets/custom_wars_list_view_sectoin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -53,7 +53,7 @@ class HistoricalCharacterDetailsView extends StatelessWidget {
                     HistoricalCharacterDetailsSection(
                       historicalCharacterModel: historicalCharacterModel,
                     ),
-                    WarsDetailsSection(
+                    CustomWarsListViewSection(
                       title: historicalCharacterModel.name,
                       historicalType: HistoricalType.historicalCharacter,
                     ),

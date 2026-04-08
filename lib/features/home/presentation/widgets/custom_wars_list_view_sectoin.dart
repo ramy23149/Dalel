@@ -10,8 +10,8 @@ import 'package:dalel_app/features/home/presentation/widgets/historical_war_item
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class WarsDetailsSection extends StatelessWidget {
-  const WarsDetailsSection({
+class CustomWarsListViewSection extends StatelessWidget {
+  const CustomWarsListViewSection({
     super.key,
     required this.title,
     required this.historicalType,

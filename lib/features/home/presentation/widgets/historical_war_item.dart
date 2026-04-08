@@ -1,3 +1,5 @@
+import 'package:dalel_app/core/functions/custom_navigation.dart';
+import 'package:dalel_app/core/routes/app_router.dart';
 import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:dalel_app/core/widgets/app_image_renderer.dart';
@@ -10,7 +12,7 @@ class HistoricalWarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      //  onTap: () => customPushNavigation(AppRouter.kHistoricalPeriodDetailsView),
+        onTap: () => customPushNavigation(AppRouter.kWarDetailsView,arguments: warModel),
       child: Card(
         color: AppColors.white,
         elevation: 5,

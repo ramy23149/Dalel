@@ -26,6 +26,9 @@ class CustomSearchTextField extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: TextField(
+          onSubmitted: (value) {
+            
+          },
           cursorColor: AppColors.white,
           cursorWidth: 2.18,
           cursorHeight: 18,

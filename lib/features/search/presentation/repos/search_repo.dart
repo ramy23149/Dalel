@@ -7,7 +7,12 @@ import 'package:dartz/dartz.dart';
 abstract class SearchRepo {
   Future<void> saveSearchQueryToHive(String query);
   Future<String?> getSearchQueryFromHive();
-  Either<Failure,List<HistoricalCharacterModel>> getHistoricalCharactersByQuery(String query);
-  Either<Failure,List<HistoricalPeriodsModel>> getHistoricalPeriodsByQuery(String query);
-  Either<Failure,List<BookEntitie>> getBooksByQuery(String query);
+Future<Either<Failure, List<HistoricalCharacterModel>>> 
+    getHistoricalCharactersByQuery(String query);
+
+Future<Either<Failure, List<HistoricalPeriodsModel>>> 
+    getHistoricalPeriodsByQuery(String query);
+
+Future<Either<Failure, List<BookEntitie>>> 
+    getBooksByQuery(String query);
 }

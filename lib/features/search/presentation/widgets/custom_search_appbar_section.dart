@@ -14,7 +14,7 @@ class CustomSearchAppBarSection extends StatelessWidget {
         IconButton(
           padding: const EdgeInsets.all(0),
           onPressed: () {
-            Navigator.pop(context);
+          FocusScope.of(context).unfocus();
           },
           icon: Icon(
             Icons.arrow_back_ios,

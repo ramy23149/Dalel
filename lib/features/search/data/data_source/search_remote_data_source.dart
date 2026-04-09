@@ -34,9 +34,12 @@ class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
     log("API IS CALLED");
     var books = await apiServiece.getSpecificBooks(query);
     List<BookEntitie> booksList = [];
-    for (var book in books['items']) {
+    if(books.containsKey('items')){
+  for (var book in books['items']) {
       booksList.add(BookModel.fromJson(book));
     }
+    }
+  
     return booksList;
   }
 

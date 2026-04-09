@@ -28,4 +28,10 @@ class HomeCubit extends Cubit<HomeState> {
       curve: Curves.easeInOut,
     );
   }
+
+  @override
+  Future<void> close()async{
+    pageController.dispose();
+    super.close();
+  }
 }

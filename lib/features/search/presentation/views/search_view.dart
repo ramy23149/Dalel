@@ -3,6 +3,7 @@ import 'package:dalel_app/features/search/data/repos/search_repo_impl.dart';
 import 'package:dalel_app/features/search/presentation/cubits/search_cubit/search_cubit.dart';
 import 'package:dalel_app/features/search/presentation/widgets/custom_search_appbar_section.dart';
 import 'package:dalel_app/features/search/presentation/widgets/recent_search_section.dart';
+import 'package:dalel_app/features/search/presentation/widgets/search_view_body_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +27,9 @@ class SearchView extends StatelessWidget {
                     SizedBox(height: 36),
                     CustomSearchAppBarSection(),
                     SizedBox(height: 16),
-                    RecentSearchSectoin(),
+                    // context.watch<SearchCubit>().searchController.text.isNotEmpty ?
+                    //   RecentSearchSectoin():
+                    SearchViewBodySection(),
                   ]),
                 ),
               ],

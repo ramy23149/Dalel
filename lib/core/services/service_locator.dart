@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dalel_app/core/database/cache/cache_helper.dart';
 import 'package:dalel_app/core/utils/api_serviece.dart';
+import 'package:dalel_app/features/auth/data/login_repo_impl.dart';
 import 'package:dalel_app/features/bazar/data/data_sources/bazar_remote_data_source.dart';
 import 'package:dalel_app/features/bazar/data/repos/bazar_repo_impl.dart';
 import 'package:dalel_app/features/home/data/data_source/home_remote_data_source.dart';
@@ -18,6 +19,7 @@ void setupServiceLocator() {
   getIt.registerSingleton<HomeRepoImpl>(
     HomeRepoImpl(homeRemoteDataSource: getIt.get<HomeRemoteDataSource>()),
   );
+  getIt.registerSingleton<LoginRepoImpl>(LoginRepoImpl());
 
   getIt.registerSingleton<ApiServiece>(ApiServiece(Dio()));
 

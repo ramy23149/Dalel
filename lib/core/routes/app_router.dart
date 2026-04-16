@@ -1,4 +1,3 @@
-import 'package:dalel_app/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
 import 'package:dalel_app/features/auth/presentation/cubits/reset_password_cubit/reset_password_cubit.dart';
 import 'package:dalel_app/features/auth/presentation/cubits/signUp_cubit/signUp_cubit.dart';
 import 'package:dalel_app/features/auth/presentation/views/forgot_password_view.dart';
@@ -59,10 +58,8 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kLogInView,
-        builder: (context, state) => BlocProvider(
-          create: (context) => LoginCubit(),
-          child: LogInView(),
-        ),
+        builder: (context, state) => 
+         LogInView(),
       ),
       GoRoute(
         path: kHomeView,

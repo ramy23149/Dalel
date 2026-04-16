@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:dalel_app/core/errors/dio_failure.dart';
 import 'package:dalel_app/core/errors/failure.dart';
-import 'package:dalel_app/core/errors/firebase_failure.dart';
+import 'package:dalel_app/core/errors/firebase_firestore_failure.dart';
 import 'package:dalel_app/features/bazar/data/data_sources/bazar_remote_data_source.dart';
 import 'package:dalel_app/features/bazar/data/models/souvenir_model/souvenir_model.dart';
 import 'package:dalel_app/features/bazar/domain/entities/book_entitie.dart';
@@ -43,9 +43,9 @@ class BazarRepoImpl implements BazarRepo {
       return right(souvenirs);
     } catch (e) {
       if (e is FirebaseException) {
-        return left(FireBaseServerFailure.fromFireStore(e));
+        return left(FireBaseFirestoreServerFailure.fromFireStore(e));
       } else {
-        return left(FireBaseServerFailure.unexpectedError(e));
+        return left(FireBaseFirestoreServerFailure.unexpectedError(e));
       }
     }
   }

@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dalel_app/core/errors/failure.dart';
-import 'package:dalel_app/core/errors/firebase_failure.dart';
+import 'package:dalel_app/core/errors/firebase_firestore_failure.dart';
 import 'package:dalel_app/features/home/data/data_source/home_remote_data_source.dart';
 import 'package:dalel_app/features/home/data/models/historical_character_model/historical_character_model.dart';
 import 'package:dalel_app/features/home/data/models/historical_periods_model/historical_periods_model.dart';
@@ -22,9 +22,9 @@ class HomeRepoImpl implements HomeRepo {
       return Right(historicalCharacters);
     } catch (e) {
       if (e is FirebaseException) {
-        return left(FireBaseServerFailure.fromFireStore(e));
+        return left(FireBaseFirestoreServerFailure.fromFireStore(e));
       } else {
-        return left(FireBaseServerFailure.unexpectedError(e));
+        return left(FireBaseFirestoreServerFailure.unexpectedError(e));
       }
     }
   }
@@ -39,9 +39,9 @@ class HomeRepoImpl implements HomeRepo {
       return Right(historicalPeriods);
     } catch (e) {
       if (e is FirebaseException) {
-        return left(FireBaseServerFailure.fromFireStore(e));
+        return left(FireBaseFirestoreServerFailure.fromFireStore(e));
       } else {
-        return left(FireBaseServerFailure.unexpectedError(e));
+        return left(FireBaseFirestoreServerFailure.unexpectedError(e));
       }
     }
   }
@@ -53,9 +53,9 @@ class HomeRepoImpl implements HomeRepo {
       return Right(wars);
     } catch (e) {
       if (e is FirebaseException) {
-        return left(FireBaseServerFailure.fromFireStore(e));
+        return left(FireBaseFirestoreServerFailure.fromFireStore(e));
       } else {
-        return left(FireBaseServerFailure.unexpectedError(e));
+        return left(FireBaseFirestoreServerFailure.unexpectedError(e));
       }
     }
   }

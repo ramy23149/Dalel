@@ -5,87 +5,87 @@ import 'package:dalel_app/core/errors/failure.dart';
 
 
 
-class FireBaseServerFailure extends Failure {
-  FireBaseServerFailure({required super.message});
+class FireBaseFirestoreServerFailure extends Failure {
+  FireBaseFirestoreServerFailure({required super.message});
 
-  factory FireBaseServerFailure.fromFireStore(FirebaseException exception) {
+  factory FireBaseFirestoreServerFailure.fromFireStore(FirebaseException exception) {
     // Handle different types of errors
     switch (exception.code) {
       case 'permission-denied':
-        return FireBaseServerFailure(
+        return FireBaseFirestoreServerFailure(
           message: 'You don\'t have permission to access this data',
         );
       case 'not-found':
-        return FireBaseServerFailure(
+        return FireBaseFirestoreServerFailure(
           message: 'The requested document was not found',
         );
       case 'already-exists':
-        return FireBaseServerFailure(
+        return FireBaseFirestoreServerFailure(
           message: 'The document already exists',
         );
       case 'resource-exhausted':
-        return FireBaseServerFailure(
+        return FireBaseFirestoreServerFailure(
           message: 'Resource limit exceeded. Please try again later',
         );
       case 'failed-precondition':
-        return FireBaseServerFailure(
+        return FireBaseFirestoreServerFailure(
           message: 'Operation cannot be performed at this time',
         );
       case 'aborted':
-        return FireBaseServerFailure(
+        return FireBaseFirestoreServerFailure(
           message: 'Operation aborted. Please try again',
         );
       case 'out-of-range':
-        return FireBaseServerFailure(
+        return FireBaseFirestoreServerFailure(
           message: 'The provided value is out of range',
         );
       case 'unimplemented':
-        return FireBaseServerFailure(
+        return FireBaseFirestoreServerFailure(
           message: 'This feature is not yet implemented',
         );
       case 'internal':
-        return FireBaseServerFailure(
+        return FireBaseFirestoreServerFailure(
           message: 'Internal server error. Please try again later',
         );
       case 'unavailable':
-        return FireBaseServerFailure(
+        return FireBaseFirestoreServerFailure(
           message:
               'Service is currently unavailable. Check your internet connection',
         );
       case 'data-loss':
-        return FireBaseServerFailure(
+        return FireBaseFirestoreServerFailure(
           message: 'Data loss occurred. Please try again',
         );
       case 'unauthenticated':
-        return FireBaseServerFailure(
+        return FireBaseFirestoreServerFailure(
           message: 'Please login first',
         );
       default:
-        return FireBaseServerFailure(
+        return FireBaseFirestoreServerFailure(
           message:
               'Server error: ${exception.message ?? 'An unexpected error occurred'}',
         );
     }
   }
-  factory FireBaseServerFailure.unexpectedError(dynamic error) {
+  factory FireBaseFirestoreServerFailure.unexpectedError(dynamic error) {
     if (error is TimeoutException) {
-      return FireBaseServerFailure(
+      return FireBaseFirestoreServerFailure(
         message: 'Connection timeout. Please try again',
       );
     } else if (error is FormatException) {
-      return FireBaseServerFailure(
+      return FireBaseFirestoreServerFailure(
         message: 'Data format error from server',
       );
     } else if (error is TypeError) {
       log('Error: $error');
-      return FireBaseServerFailure(
+      return FireBaseFirestoreServerFailure(
         message: 'Data type error from server',
       );
     } else {
       // Log the error for debugging
       log('Unhandled error $error');
 
-      return FireBaseServerFailure(
+      return FireBaseFirestoreServerFailure(
         message: 'Unexpected error: ${error.toString()}',
       );
     }
